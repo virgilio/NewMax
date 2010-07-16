@@ -7,6 +7,11 @@
 class AppController extends Controller {
     var $components = array('Acl', 'Auth', 'Session');
 
+
+    function index(){
+
+    }
+
     function beforeFilter() {
         //Configure AuthComponent
         $this->Auth->authorize = 'actions';
@@ -14,6 +19,7 @@ class AppController extends Controller {
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'calendars', 'action' => 'add');
         $this->Auth->actionPath = 'controllers/';
+        $this->Auth->allowedActions = array('display');
     }
 
     function build_acl() {

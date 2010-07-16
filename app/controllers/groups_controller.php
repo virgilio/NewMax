@@ -5,7 +5,7 @@ class GroupsController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('*');
+        //$this->Auth->allow('*');
     }
 
     function index() {

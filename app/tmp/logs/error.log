@@ -18,3 +18,128 @@ Aro: Array
 )
 
 Aco: Calendars/add in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 273]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:19 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:40:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:44:28 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:45:47 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:23 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:48:43 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:07 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:49:09 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 18:54:31 Warning: Warning (512): DbAcl::allow() - Invalid node in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 361]
+2010-07-16 19:33:03 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 4
+            [username] => admin
+            [group_id] => 5
+            [email] => virgilio.santos@gmail.com
+            [first_name] => Virgilio
+            [last_name] => N Santos
+            [phone] => 19 91450556
+            [created] => 2010-07-16 00:58:52
+            [modified] => 2010-07-16 00:58:52
+        )
+
+)
+
+Aco: controllers/Calendars/add in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 273]
+2010-07-16 19:37:43 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 4
+            [username] => admin
+            [group_id] => 5
+            [email] => virgilio.santos@gmail.com
+            [first_name] => Virgilio
+            [last_name] => N Santos
+            [phone] => 19 91450556
+            [created] => 2010-07-16 00:58:52
+            [modified] => 2010-07-16 00:58:52
+        )
+
+)
+
+Aco: controllers/Users/index in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 273]

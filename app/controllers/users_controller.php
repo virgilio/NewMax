@@ -5,12 +5,12 @@ class UsersController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('*');
+        //$this->Auth->allowedActions('login');
     }
 
     function aclsetup() {
         $this->Acl->Aco->create(array('parent_id' => null, 'alias' => 'controllers'));
-        //$this->Acl->Aco->save();
+        $this->Acl->Aco->save();
         $this->set('data', $this);
 
     }
@@ -89,15 +89,24 @@ class UsersController extends AppController {
     }
 
 
+
     function login() {
-        //Auth Magic
+        if ($this->Session->read('Auth.User')) {
+            $this->Session->setFlash('You are logged in!');
+            $this->redirect('/calendars', null, false);
+        }
     }
+    //Auth Magic
+
 
     function logout() {
         //Leave empty for now.
+        $this->Session->setFlash('Good-Bye');
+        $this->redirect('/', null, false);
+        $this->redirect($this->Auth->logout());
     }
 
-    function initDB() {
+    function initdb() {
         $group =& $this->User->Group;
         //Allow admins to everything
         $group->id = 5;
@@ -106,16 +115,16 @@ class UsersController extends AppController {
         //allow managers to posts and widgets
         $group->id = 6;
         $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/Posts');
-        $this->Acl->allow($group, 'controllers/Widgets');
+        $this->Acl->allow($group, 'controllers/Calendars');
+        $this->Acl->allow($group, 'controllers/Visists');
 
         //allow users to only add and edit on posts and widgets
         $group->id = 7;
         $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/Posts/add');
-        $this->Acl->allow($group, 'controllers/Posts/edit');
-        $this->Acl->allow($group, 'controllers/Widgets/add');
-        $this->Acl->allow($group, 'controllers/Widgets/edit');
+        $this->Acl->allow($group, 'controllers/Calendars');
+        $this->Acl->allow($group, 'controllers/Visits');
+        $this->Acl->allow($group, 'controllers/Users');
+        $this->Acl->allow($group, 'controllers/Contacts');
     }
 }
 ?>

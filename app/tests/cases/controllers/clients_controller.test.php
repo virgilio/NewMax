@@ -1,5 +1,5 @@
 <?php
-/* Clients Test cases generated on: 2010-07-14 23:07:50 : 1279160450*/
+/* Clients Test cases generated on: 2010-07-16 18:07:37 : 1279315057*/
 App::import('Controller', 'Clients');
 
 class TestClientsController extends ClientsController {
@@ -11,7 +11,7 @@ class TestClientsController extends ClientsController {
 }
 
 class ClientsControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.client', 'app.calendar', 'app.contact');
+	var $fixtures = array('app.client', 'app.calendar', 'app.user', 'app.group', 'app.contact');
 
 	function startTest() {
 		$this->Clients =& new TestClientsController();

@@ -1,5 +1,5 @@
 <?php
-/* Contacts Test cases generated on: 2010-07-14 23:07:55 : 1279160455*/
+/* Contacts Test cases generated on: 2010-07-16 18:07:21 : 1279315041*/
 App::import('Controller', 'Contacts');
 
 class TestContactsController extends ContactsController {

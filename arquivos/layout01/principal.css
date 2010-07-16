@@ -1,0 +1,74 @@
+body {
+	background: #fff;
+	color: #333;
+	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+	padding: 20px 0 40px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-family: Georgia, serif;
+	font-weight: normal;
+	text-align: center;
+}
+
+h2 {
+	padding: 20px 0 0;
+	text-align: center;
+}
+
+p {
+	overflow: hidden;
+	padding: 10px 0;
+	text-align: center;
+}
+
+#header {
+	background-color:#0D213C;
+	height:40px;
+}
+#header ul {
+	list-style:none outside none;
+	margin:0;
+	padding-left:100px;
+}
+#header ul  li{
+	color:white;
+	display:inline;
+	float:left;
+	font-size:1.3em;
+	margin:5px 0 0;
+	padding-left:30px;
+}
+#content{
+	background:url("../img/shadow.png") repeat-x scroll center top transparent;
+	padding-top:15px;
+}
+#footer{
+	background:url("../img/shadowi.png") repeat-x scroll center top transparent;
+	padding-top:10px;
+}
+#footer ul {
+	height:20px;
+	list-style:none outside none;
+	margin:0 auto;
+	width:280px;
+}
+#footer ul  li{
+	display:inline;
+	float:left;
+	margin:0;
+	padding-left:10px;
+}
+
+.container_12 {
+	margin-bottom: 20px;
+}

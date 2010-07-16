@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -19,6 +20,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $client['Client']['id']; ?>&nbsp;</td>
 		<td><?php echo $client['Client']['name']; ?>&nbsp;</td>
+		<td><?php echo $client['Client']['user_id']; ?>&nbsp;</td>
 		<td><?php echo $client['Client']['created']; ?>&nbsp;</td>
 		<td><?php echo $client['Client']['modified']; ?>&nbsp;</td>
 		<td class="actions">

@@ -1,0 +1,20 @@
+2010-07-16 00:57:17 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1062: Duplicate entry 'admin' for key 'name'</span> in [/var/www/vendas/NewMax/cake/libs/model/datasources/dbo_source.php, line 673]
+2010-07-16 15:22:58 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 4
+            [username] => admin
+            [group_id] => 5
+            [email] => virgilio.santos@gmail.com
+            [first_name] => Virgilio
+            [last_name] => N Santos
+            [phone] => 19 91450556
+            [created] => 2010-07-16 00:58:52
+            [modified] => 2010-07-16 00:58:52
+        )
+
+)
+
+Aco: Calendars/add in [/var/www/vendas/NewMax/cake/libs/controller/components/acl.php, line 273]

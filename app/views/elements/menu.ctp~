@@ -1,0 +1,17 @@
+<?php 
+?>
+<div class="container_12">
+   <img class="grid_2" src="img/logomenor.png" />
+   <ul class="kwicks grid_6">  
+   <li id="kwick1"><a href="visits">Visitas</a></li>  
+   <li id="kwick2"><a href="clients">Clientes</a></li>  
+   <li id="kwick3"><a href="cronograms">Calendário</a></li>  
+   <li id="kwick4"><a href="users">Contas</a></li> 
+   </ul>
+   <span class="grid_2">Olá, usuário.</span>
+   <div id="boxlogin" class="grid_1">
+   <a id="login" >Login</a>
+   <div id="form_login">ll</div>
+   </div>
+   </div>
+   

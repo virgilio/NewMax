@@ -17,6 +17,22 @@ class VisitsController extends AppController {
 	}
 
 	function add() {
+                //$client tera as informações do cliente selecionado
+                $client = $this->Visit->Client->findById($this->data['Visit']['client_id']);
+
+                //Jogando em $this->data a informação do id do usuario (vendedor)
+                $this->data['Visit']['user_id'] = $client['Client']['user_id'];
+
+                //Marcando a visita como 'nao feita'
+                $this->data['Visit']['done'] = '0';
+
+                //Marcando o id de cronograma como null
+                $this->data['Visit']['cronogram_id'] = null;
+
+                //Marcando o relatorio como vazio
+                $this->data['Visit']['report'] = "";
+
+
 		if (!empty($this->data)) {
 			$this->Visit->create();
 			if ($this->Visit->save($this->data)) {
@@ -38,6 +54,9 @@ class VisitsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+                        $client = $this->Visit->Client->findById($this->data['Visit']['client_id']);
+                        $this->data['Visit']['user_id'] = $client['Client']['user_id'];
+
 			if ($this->Visit->save($this->data)) {
 				$this->Session->setFlash(__('The visit has been saved', true));
 				$this->redirect(array('action' => 'index'));

@@ -3,12 +3,12 @@
 	<fieldset>
  		<legend><?php __('Add Visit'); ?></legend>
 	<?php
-		echo $this->Form->input('cronogram_id');
+		//echo $this->Form->input('cronogram_id');
 		echo $this->Form->input('client_id');
-		echo $this->Form->input('user_id');
+		//echo $this->Form->input('user_id');
 		echo $this->Form->input('date');
-		echo $this->Form->input('done');
-		echo $this->Form->input('report');
+		//echo $this->Form->input('done');
+		//echo $this->Form->input('report');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

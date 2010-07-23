@@ -17,6 +17,24 @@ class ClientsController extends AppController {
 	}
 
 	function add() {
+                $this->loadModel('Group');
+                
+                $userList = $this->Client->User->find('all');
+                $groupList = $this->Group->findByName('Vendedor');
+                $vendorId =  $groupList['Group']['id'];
+
+//                echo '<pre>'.print_r($groupList).'</pre>';
+
+                $options = array();
+                foreach ($userList as $user){
+                    if($user['User']['group_id'] == $vendorId)
+                        $options[$user['User']['id']] = $user['User']['first_name']." ".$user['User']['last_name']." (".$user['User']['username'].")";
+                }
+
+                $usersInfoList = array('options' => $options);
+
+                $this->set('userInfoList', $usersInfoList);
+
 		if (!empty($this->data)) {
 			$this->Client->create();
 			if ($this->Client->save($this->data)) {

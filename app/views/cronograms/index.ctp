@@ -38,7 +38,6 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $cronogram['Cronogram']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $cronogram['Cronogram']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $cronogram['Cronogram']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cronogram['Cronogram']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

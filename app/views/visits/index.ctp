@@ -38,9 +38,23 @@
 		<td><?php echo $visit['Visit']['created']; ?>&nbsp;</td>
 		<td><?php echo $visit['Visit']['modified']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $visit['Visit']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $visit['Visit']['id'])); ?>
+                    <?php echo $this->Html->link(__('View', true), array('action' => 'view', $visit['Visit']['id'])); ?>
+                    <?php
+                    //Data de hoje
+                    $today = mktime (0, 0, 0, date("m")  , date("d"), date("Y"));
+                    //Data da visita
+                    $visitDay = strtotime($visit['Visit']['date']);
+
+                    //Se ainda nao passou a data da visita e eh um calendario avulso
+                    if($visit['Cronogram']['id'] == null && $today < $visitDay){
+
+                    //mostra edit e delete paa a visita
+                    ?>
+                        <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $visit['Visit']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id'])); ?>
+                    <?php
+                        }
+                    ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -54,8 +68,8 @@
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
+	  	<?php echo $this->Paginator->numbers();?>
+ 
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>

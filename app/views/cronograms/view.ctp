@@ -52,7 +52,9 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Cronogram', true), array('action' => 'edit', $cronogram['Cronogram']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Cronogram', true), array('action' => 'delete', $cronogram['Cronogram']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cronogram['Cronogram']['id'])); ?> </li>
+		<!--<li>
+                    <?php /*echo $this->Html->link(__('Delete Cronogram', true), array('action' => 'delete', $cronogram['Cronogram']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cronogram['Cronogram']['id'])); */?>
+                </li>-->
 		<li><?php echo $this->Html->link(__('List Cronograms', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cronogram', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Clients', true), array('controller' => 'clients', 'action' => 'index')); ?> </li>
@@ -100,7 +102,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'visits', 'action' => 'view', $visit['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'visits', 'action' => 'edit', $visit['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'visits', 'action' => 'delete', $visit['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['id'])); ?>
+				<?php/* echo $this->Html->link(__('Delete', true), array('controller' => 'visits', 'action' => 'delete', $visit['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['id']));*/ ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

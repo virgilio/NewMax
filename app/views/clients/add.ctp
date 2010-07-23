@@ -4,7 +4,10 @@
  		<legend><?php __('Add Client'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('user_id');
+
+                echo $this->Form->input('user_id', $userInfoList);
+
+		//echo $this->Form->input('user_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

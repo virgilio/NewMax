@@ -51,8 +51,22 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Visit', true), array('action' => 'edit', $visit['Visit']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Visit', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id'])); ?> </li>
+                <?php
+                    //Data de hoje
+                    $today = mktime (0, 0, 0, date("m")  , date("d"), date("Y"));
+                    //Data da visita
+                    $visitDay = mktime(0, 0, 0, $visit['Visit']['date']['month'], $visit['Visit']['date']['day'], $visit['Visit']['date']['year']);
+
+                    //Se ainda nao passou a data da visita e eh um calendario avulso
+                    if($visit['Cronogram']['id'] == null && $today < $visitDay){
+
+                    //mostra edit e delete paa a visita
+                ?>      
+                        <li><?php echo $this->Html->link(__('Edit Visit', true), array('action' => 'edit', $visit['Visit']['id'])); ?> </li>
+                        <li><?php echo $this->Html->link(__('Delete Visit', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id'])); ?> </li>
+                <?php
+                    }
+                ?>
 		<li><?php echo $this->Html->link(__('List Visits', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Visit', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cronograms', true), array('controller' => 'cronograms', 'action' => 'index')); ?> </li>

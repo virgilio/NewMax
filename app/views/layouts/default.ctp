@@ -76,8 +76,15 @@ echo $this->Html->css('cake.generic');
 
 		</div>
 		<div id="content">
+			<?php
+                            echo $this->Session->flash();
+                            
+//                            echo "<pre>";
+//                            print_r($session->read('Auth.User'));
+//                            echo "</pre>";
 
-			<?php echo $this->Session->flash(); ?>
+                            echo $this->Session->flash('auth');
+                         ?>
 
 			<?php echo $content_for_layout; ?>
 

@@ -10,10 +10,17 @@
    <li id="kwick3"><?php echo $this->Html->link(__('Visitas', true), array('controller' => 'cronograms', 'action' => 'index')); ?></li>  
    <li id="kwick4"><?php echo $this->Html->link(__('Visitas', true), array('controller' => 'users', 'action' => 'index')); ?></li>  
    </ul>
-   <span class="grid_2">Olá, usuário.</span>
-   <div id="boxlogin" class="grid_1">
-   <a id="login" >Login</a>
-   <div id="form_login">ll</div>
-   </div>
+   <span class="grid_2">
+       <?php
+        if($session->read('Auth.User') != null)
+            echo $this->Html->link(__('Sair', true), array('controller' => 'users', 'action' => 'logout'));
+        ?>
+   </span>
+    <?php
+//   <div id="boxlogin" class="grid_1">
+//   <a id="login" >Login</a>
+//   <div id="form_login">ll</div>
+//   </div>
+    ?>
    </div>
    

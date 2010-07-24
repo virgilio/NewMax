@@ -43,7 +43,7 @@ class UsersController extends AppController {
         }
         if (!empty($this->data)) {
             if ($this->User->save($this->data)) {
-                $this->Session->setFlash(__('The user has been saved', true));
+                $this->Session->setFlash(__('The user has been saved: <pre>', true));
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
@@ -83,6 +83,10 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
+
+    function changePassword(){
+        
+    }
 
     function setup() {
         echo "me here";

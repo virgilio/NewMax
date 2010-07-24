@@ -41,6 +41,11 @@
 			<?php echo $user['User']['phone']; ?>
 			&nbsp;
 		</dd>
+                <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Active'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['active']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['created']; ?>

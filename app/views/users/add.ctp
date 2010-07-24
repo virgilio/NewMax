@@ -10,6 +10,7 @@
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('phone');
+                echo $this->Form->input('active');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

@@ -1,9 +1,11 @@
-<div class="users form">
+<!-- VIEW UTILIZADA POR ADMINS E GERENTES-->
+
+<div class="users edit">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
- 		<legend><?php __('Edit User'); ?></legend>
+ 		<legend><?php __('Editar Usuário'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
+//		echo $this->Form->input('id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('group_id');
@@ -11,11 +13,14 @@
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('phone');
-                echo $this->Form->input('active');
+//                echo $this->Form->input('active');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
+
+<?php
+/*
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -32,3 +37,5 @@
 		<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+ */
+?>

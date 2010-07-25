@@ -1,7 +1,10 @@
-<div class="users form">
+<!-- VIEW UTILIZADA POR ADMINS E GERENTES-->
+
+
+<div class="users add">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
- 		<legend><?php __('Add User'); ?></legend>
+ 		<legend><?php __('Criar usuário'); ?></legend>
 	<?php
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
@@ -13,20 +16,30 @@
                 echo $this->Form->input('active');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Html->link(__('List Users', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Groups', true), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group', true), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Clients', true), array('controller' => 'clients', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Client', true), array('controller' => 'clients', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cronograms', true), array('controller' => 'cronograms', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cronogram', true), array('controller' => 'cronograms', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Visits', true), array('controller' => 'visits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add')); ?> </li>
+<?php
+/*
+<div class="actions">
+	<h3><?php __('Ações'); ?></h3>
+
+	<ul>
+            <?php
+                $user = $session->read('Auth.User');
+                if($user['group_id'] == '1'){
+            ?>
+                    <li><?php echo $this->Html->link(__('Listar Usuários', true), array('action' => 'index_admin'));?></li>
+
+            <?php
+                }else{
+            ?>
+                    <li><?php echo $this->Html->link(__('Listar Usuários', true), array('action' => 'index_manager'));?></li>
+            <?php
+                }
+            ?>
 	</ul>
 </div>
+ */
+?>
+ */

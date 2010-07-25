@@ -1,17 +1,17 @@
-<div class="clients form">
+<div class="clients add">
 <?php echo $this->Form->create('Client');?>
 	<fieldset>
- 		<legend><?php __('Add Client'); ?></legend>
+ 		<legend><?php __('Cadastro de cliente'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-
                 echo $this->Form->input('user_id', $userInfoList);
-
 		//echo $this->Form->input('user_id');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Enviar', true));?>
 </div>
+<?php
+/*
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -27,3 +27,5 @@
 		<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+ */
+?>

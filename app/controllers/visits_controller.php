@@ -16,6 +16,11 @@ class VisitsController extends AppController {
         $this->set('visits', $this->paginate());
     }
 
+    function index_vendor() {
+        $this->Visit->recursive = 0;
+        $this->set('visits', $this->paginate());
+    }
+
     function view($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid visit', true));
@@ -49,6 +54,31 @@ class VisitsController extends AppController {
             } else {
                 $this->Session->setFlash(__('The visit could not be saved. Please, try again.', true));
             }
+        }
+        $cronograms = $this->Visit->Cronogram->find('list');
+        $clients = $this->Visit->Client->find('list');
+        $users = $this->Visit->User->find('list');
+        $this->set(compact('cronograms', 'clients', 'users'));
+    }
+
+    function edit_vendor($id = null) {
+        if (!$id && empty($this->data)) {
+            $this->Session->setFlash(__('Invalid visit', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->data)) {
+            $client = $this->Visit->Client->findById($this->data['Visit']['client_id']);
+            $this->data['Visit']['user_id'] = $client['Client']['user_id'];
+
+            if ($this->Visit->save($this->data)) {
+                $this->Session->setFlash(__('The visit has been saved', true));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The visit could not be saved. Please, try again.', true));
+            }
+        }
+        if (empty($this->data)) {
+            $this->data = $this->Visit->read(null, $id);
         }
         $cronograms = $this->Visit->Cronogram->find('list');
         $clients = $this->Visit->Client->find('list');

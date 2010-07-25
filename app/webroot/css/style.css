@@ -15,7 +15,7 @@ font-family:Verdana, Arial, Helvetica, sans-serif;
     padding: 0;  
     cursor: pointer;  
 	float: left;
-	width: 125px;
+	width: 90px;
 	height: 40px;
 	margin-right: 0px;
 	background-image:url(../img/kwicks_sprite.png);
@@ -32,24 +32,36 @@ font-family:Verdana, Arial, Helvetica, sans-serif;
 	background-position:0px 0px;
 }
 #kwick2 {
-	background-position:-200px 0px;
+	background-position:-140px 0px;
 }
 #kwick3 {
-	background-position:-400px 0px;
+	background-position:-280px 0px;
 }
 #kwick4 { 
-	background-position:-600px 0px;
+	background-position:-420px 0px;
+}
+#kwick5{
+	background-position:-560px 0px;
+}
+#kwick6 { 
+	background-position:-700px 0px;
 }
 
 #kwick1.active, #kwick1:hover { 
 	background-position: 0 bottom;
 }
 #kwick2.active, #kwick2:hover{
-	background-position: -200px bottom;
+	background-position: -140px bottom;
 }
 #kwick3.active, #kwick3:hover {
-	background-position: -400px bottom;
+	background-position: -280px bottom;
 }
 #kwick4.active, #kwick4:hover {
-	background-position: -600px bottom; 
+	background-position: -420px bottom; 
+}
+#kwick5.active, #kwick5:hover {
+	background-position: -560px bottom;
+}
+#kwick6.active, #kwick6:hover {
+	background-position: -700px bottom; 
 }

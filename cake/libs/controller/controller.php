@@ -1052,7 +1052,7 @@ class Controller extends Object {
  * @link http://book.cakephp.org/view/1232/Controller-Setup
  */
 	function paginate($object = null, $scope = array(), $whitelist = array()) {
-		if (is_array($object)) {
+            	if (is_array($object)) {
 			$whitelist = $scope;
 			$scope = $object;
 			$object = null;

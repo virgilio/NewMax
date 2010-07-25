@@ -3,10 +3,13 @@ class CronogramsController extends AppController {
 
 	var $name = 'Cronograms';
 
-	function index() {
-		$this->Cronogram->recursive = 0;
-		$this->set('cronograms', $this->paginate());
-	}
+        function index() {
+            $this->Cronogram->recursive = 0;
+            $this->paginate['Cronogram'] = array(
+                'order' => 'User.username'
+            );
+            $this->set('cronograms', $this->paginate('Cronogram'));
+        }
 
         function index_vendor() {
 		$this->Cronogram->recursive = 0;

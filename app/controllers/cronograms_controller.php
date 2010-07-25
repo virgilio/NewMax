@@ -8,6 +8,11 @@ class CronogramsController extends AppController {
 		$this->set('cronograms', $this->paginate());
 	}
 
+        function index_vendor() {
+		$this->Cronogram->recursive = 0;
+		$this->set('cronograms', $this->paginate());
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid cronogram', true));

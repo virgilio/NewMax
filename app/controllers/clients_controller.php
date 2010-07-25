@@ -8,6 +8,11 @@ class ClientsController extends AppController {
 		$this->set('clients', $this->paginate());
 	}
 
+        function index_vendor() {
+		$this->Client->recursive = 0;
+		$this->set('clients', $this->paginate());
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid client', true));

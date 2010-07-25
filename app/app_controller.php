@@ -207,41 +207,90 @@ class AppController extends Controller {
     function initDB() {
         $group =& $this->User->Group;
         //tables: clients, contacts, cronograms, groups, users, visits
-        //Allow admins to everything
-//        $group->id = 1;
-//        $this->Acl->allow($group, 'controllers');
 
-        //allow managers to posts and widgets
-        $group->id = 2;
-//        $this->Acl->deny($group, 'controllers');
-//        $this->Acl->allow($group, 'controllers/Clients');
-//        $this->Acl->allow($group, 'controllers/Contacts');
-//        $this->Acl->allow($group, 'controllers/Cronograms/add');
-//        $this->Acl->allow($group, 'controllers/Cronograms/edit');
-        $this->Acl->allow($group, 'controllers/Cronograms/view');
-        $this->Acl->allow($group, 'controllers/Cronograms/index');
-//
-//        $this->Acl->allow($group, 'controllers/Users');
-        $this->Acl->allow($group, 'controllers/Visits');
         
+        //Admin permissions
+        $group->id = 1;
+        //Clients
+        $this->Acl->allow($group, 'controllers/Clients/add');
+        $this->Acl->allow($group, 'controllers/Clients/edit');
+        $this->Acl->allow($group, 'controllers/Clients/index');
+        $this->Acl->allow($group, 'controllers/Clients/view');
+        //Contacts
+        $this->Acl->allow($group, 'controllers/Contacts/add');
+        $this->Acl->allow($group, 'controllers/Contacts/edit');
+        $this->Acl->allow($group, 'controllers/Contacts/index');
+        $this->Acl->allow($group, 'controllers/Contacts/view');
+        //Cronograms
+        $this->Acl->allow($group, 'controllers/Cronograms/add');
+        $this->Acl->allow($group, 'controllers/Cronograms/edit');
+        $this->Acl->allow($group, 'controllers/Cronograms/index');
+        $this->Acl->allow($group, 'controllers/Cronograms/view');
+        //Groups
+        $this->Acl->allow($group, 'controllers/Groups/add');
+        $this->Acl->allow($group, 'controllers/Groups/edit');
+        $this->Acl->allow($group, 'controllers/Groups/index');
+        $this->Acl->allow($group, 'controllers/Groups/view');
+        //Users
+        $this->Acl->allow($group, 'controllers/Users/add');
+        $this->Acl->allow($group, 'controllers/Users/edit');
+        $this->Acl->allow($group, 'controllers/Users/index_admin');
+        $this->Acl->allow($group, 'controllers/Users/view');
+        //Visits
+        $this->Acl->allow($group, 'controllers/Visits/add');
+        $this->Acl->allow($group, 'controllers/Visits/edit');
+        $this->Acl->allow($group, 'controllers/Visits/index');
+        $this->Acl->allow($group, 'controllers/Visits/view');
 
 
-        //allow users to only add and edit on posts and widgets
+        //Manager permissions
+        $group->id = 2;
+        //Clients
+        $this->Acl->allow($group, 'controllers/Clients/add');
+        $this->Acl->allow($group, 'controllers/Clients/edit');
+        $this->Acl->allow($group, 'controllers/Clients/index');
+        $this->Acl->allow($group, 'controllers/Clients/view');
+        //Contacts
+        $this->Acl->allow($group, 'controllers/Contacts/add');
+        $this->Acl->allow($group, 'controllers/Contacts/edit');
+        $this->Acl->allow($group, 'controllers/Contacts/index');
+        $this->Acl->allow($group, 'controllers/Contacts/view');
+        //Cronograms
+        $this->Acl->allow($group, 'controllers/Cronograms/add');
+        $this->Acl->allow($group, 'controllers/Cronograms/edit');
+        $this->Acl->allow($group, 'controllers/Cronograms/index');
+        $this->Acl->allow($group, 'controllers/Cronograms/view');
+        //Users
+        $this->Acl->allow($group, 'controllers/Users/add');
+        $this->Acl->allow($group, 'controllers/Users/edit');
+        $this->Acl->allow($group, 'controllers/Users/index_manager');
+        $this->Acl->allow($group, 'controllers/Users/view');
+        //Visits
+        $this->Acl->allow($group, 'controllers/Visits/add');
+        $this->Acl->allow($group, 'controllers/Visits/edit');
+        $this->Acl->allow($group, 'controllers/Visits/index');
+        $this->Acl->allow($group, 'controllers/Visits/view');
+
+
+        //Vendors permissions
         $group->id = 3;
-        $this->Acl->deny($group, 'controllers');
-        ////$this->Acl->allow($group, 'controllers/Clients');
-        //$this->Acl->allow($group, 'controllers/Clients/view');
-        //$this->Acl->allow($group, 'controllers/Clients/index');
-        ////$this->Acl->allow($group, 'controllers/Contacts');
-        ////$this->Acl->allow($group, 'controllers/Cronograms/add');
-        ////$this->Acl->allow($group, 'controllers/Cronograms/edit');
-        //$this->Acl->allow($group, 'controllers/Cronograms/view');
-        //$this->Acl->allow($group, 'controllers/Cronograms/index');
-        //$this->Acl->allow($group, 'controllers/Users');
-        //$this->Acl->allow($group, 'controllers/Visits/edit');
-        //$this->Acl->allow($group, 'controllers/Visits/add');
-        //$this->Acl->allow($group, 'controllers/Visits/view');
-        //$this->Acl->allow($group, 'controllers/Visits/index');
+        //Clients
+        $this->Acl->allow($group, 'controllers/Clients/index_vendor');
+        $this->Acl->allow($group, 'controllers/Clients/view');
+        //Contacts
+        $this->Acl->allow($group, 'controllers/Contacts/index');
+        $this->Acl->allow($group, 'controllers/Contacts/view');
+        //Cronograms
+        $this->Acl->allow($group, 'controllers/Cronograms/index_vendor');
+        $this->Acl->allow($group, 'controllers/Cronograms/view');
+        //Users
+        $this->Acl->allow($group, 'controllers/Users/edit_vendor');
+        $this->Acl->allow($group, 'controllers/Users/view');
+        //Visits
+        $this->Acl->allow($group, 'controllers/Visits/edit');
+        $this->Acl->allow($group, 'controllers/Visits/index');
+        $this->Acl->allow($group, 'controllers/Visits/view');
+
     }
 
 

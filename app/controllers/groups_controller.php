@@ -9,27 +9,32 @@ class GroupsController extends AppController {
     }
 
 
-    function index() {
+//    function index() {
+//        $this->Group->recursive = 0;
+//        $this->set('groups', $this->paginate());
+//    }
+
+    function index_admin() {
         $this->Group->recursive = 0;
         $this->set('groups', $this->paginate());
     }
 
-    function view($id = null) {
+    function view_admin($id = null) {
         if (!$id) {
-            $this->Session->setFlash(__('Invalid group', true));
-            $this->redirect(array('action' => 'index'));
+            $this->Session->setFlash(__('Grupo inválido', true));
+            $this->redirect(array('action' => 'index_admin'));
         }
         $this->set('group', $this->Group->read(null, $id));
     }
 
-    function add() {
+    function add_admin() {
         if (!empty($this->data)) {
             $this->Group->create();
             if ($this->Group->save($this->data)) {
-                $this->Session->setFlash(__('The group has been saved', true));
-                $this->redirect(array('action' => 'index'));
+                $this->Session->setFlash(__('Grupo Salvo', true));
+                $this->redirect(array('action' => 'index_admin'));
             } else {
-                $this->Session->setFlash(__('The group could not be saved. Please, try again.', true));
+                $this->Session->setFlash(__('O grupo não pôde ser salvo, tente novamente.', true));
             }
         }
     }

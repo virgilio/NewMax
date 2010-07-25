@@ -6,10 +6,16 @@ class UsersController extends AppController {
     function beforeFilter() {
         parent::beforeFilter();
         //$this->Auth->allowedActions = array('*');
-        $this->Auth->allowedActions = array('login', 'logout', 'initDB');
+        //$this->Auth->allowedActions = array('login', 'logout', 'initDB');
+        $this->Auth->allowedActions = array('login', 'logout', 'initDB', 'build_acl');
     }
 
-    function index() {
+    function index_manager() {
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
+    }
+
+    function index_admin() {
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
     }
@@ -37,6 +43,26 @@ class UsersController extends AppController {
     }
 
     function edit($id = null) {
+        if (!$id && empty($this->data)) {
+            $this->Session->setFlash(__('Invalid user', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->data)) {
+            if ($this->User->save($this->data)) {
+                $this->Session->setFlash(__('The user has been saved: <pre>', true));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
+            }
+        }
+        if (empty($this->data)) {
+            $this->data = $this->User->read(null, $id);
+        }
+        $groups = $this->User->Group->find('list');
+        $this->set(compact('groups'));
+    }
+
+    function edit_vendor($id = null) {
         if (!$id && empty($this->data)) {
             $this->Session->setFlash(__('Invalid user', true));
             $this->redirect(array('action' => 'index'));

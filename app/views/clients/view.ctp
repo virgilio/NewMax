@@ -1,11 +1,13 @@
-<div class="clients view">
+<div class="clients view_">
 <h2><?php  __('Client');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+            <?php
+		/*<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $client['Client']['id']; ?>
 			&nbsp;
-		</dd>
+		</dd>*/
+            ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $client['Client']['name']; ?>
@@ -28,7 +30,8 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<?php
+/*<div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Client', true), array('action' => 'edit', $client['Client']['id'])); ?> </li>
@@ -192,4 +195,5 @@
 			<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
-</div>
+</div>*/
+?>

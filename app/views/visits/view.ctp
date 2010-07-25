@@ -1,11 +1,14 @@
-<div class="visits view">
+<div class="visits view_">
 <h2><?php  __('Visit');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<?php
+                /*<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $visit['Visit']['id']; ?>
 			&nbsp;
-		</dd>
+		</dd>*/
+                ?>
+
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cronogram'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($visit['Cronogram']['id'], array('controller' => 'cronograms', 'action' => 'view', $visit['Cronogram']['id'])); ?>
@@ -36,7 +39,8 @@
 			<?php echo $visit['Visit']['report']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+                <?php
+		/*<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $visit['Visit']['created']; ?>
 			&nbsp;
@@ -45,10 +49,12 @@
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $visit['Visit']['modified']; ?>
 			&nbsp;
-		</dd>
+		</dd>*/
+                ?>
 	</dl>
 </div>
-<div class="actions">
+<?php
+/*<div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
                 <?php
@@ -76,4 +82,5 @@
 		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>*/
+?>

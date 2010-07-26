@@ -9,10 +9,10 @@
 		//echo $this->Form->input('user_id');
 		//echo $this->Form->input('date');
 		//echo $this->Form->input('done');
-		echo $this->Form->input('report');
+		echo $this->Form->input('report', array('label'=>'Relat&oacute;rio'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
 <?php
 /*<div class="actions">

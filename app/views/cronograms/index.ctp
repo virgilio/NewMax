@@ -4,15 +4,15 @@
     <table cellpadding="0" cellspacing="0" class="table_general_layout" >
         <thead
             <tr>
-                <th><?php echo $this->Paginator->sort('client_id');?></th>
+                <th><?php echo $this->Paginator->sort('Cliente','client_id');?></th>
                 <th><?php echo $this->Paginator->sort('Nome', 'full_name');?></th>
-                <th><?php echo $this->Paginator->sort('start');?></th>
-                <th><?php echo $this->Paginator->sort('frequency');?></th>
-                <th><?php echo $this->Paginator->sort('period');?></th>
-                <th><?php echo $this->Paginator->sort('active');?></th>
+                <th><?php echo $this->Paginator->sort('Início','start');?></th>
+                <th><?php echo $this->Paginator->sort('Periodicidade','frequency');?></th>
+                <th><?php echo $this->Paginator->sort('Período','period');?></th>
+                <th><?php echo $this->Paginator->sort('Ativo','active');?></th>
 
 
-                <th class="actions"><?php __('Actions');?></th>
+                <th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
             </tr>
         </thead>
 

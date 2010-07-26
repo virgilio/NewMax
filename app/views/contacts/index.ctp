@@ -1,17 +1,21 @@
 <div class="contacts index">
-	<h2><?php __('Contacts');?></h2>
+	<h2><?php __('Contatos');?></h2>
 	<table cellpadding="0" cellspacing="0" class="table_general_layout ">
             <thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('client_id');?></th>
-			<th><?php echo $this->Paginator->sort('funcao');?></th>
-			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('phone');?></th>
-			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<?php
+                        /*<th><?php echo $this->Paginator->sort('id');?></th>*/
+                        ?>
+			<th><?php echo $this->Paginator->sort('Cliente','client_id');?></th>
+			<th><?php echo $this->Paginator->sort('Função','funcao');?></th>
+			<th><?php echo $this->Paginator->sort('Nome','name');?></th>
+			<th><?php echo $this->Paginator->sort('Telefone','phone');?></th>
+			<th><?php echo $this->Paginator->sort('E-mail','email');?></th>
+			<?
+                        /*<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>*/
+                        ?>
+			<th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
 	</tr>
             </thead>
 	<?php
@@ -23,7 +27,9 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $contact['Contact']['id']; ?>&nbsp;</td>
+		<?php 
+                /*<td><?php echo $contact['Contact']['id']; ?>&nbsp;</td>*/
+                ?>
 		<td>
 			<?php echo $this->Html->link($contact['Client']['name'], array('controller' => 'clients', 'action' => 'view', $contact['Client']['id'])); ?>
 		</td>
@@ -31,12 +37,14 @@
 		<td><?php echo $contact['Contact']['name']; ?>&nbsp;</td>
 		<td><?php echo $contact['Contact']['phone']; ?>&nbsp;</td>
 		<td><?php echo $contact['Contact']['email']; ?>&nbsp;</td>
-		<td><?php echo $contact['Contact']['created']; ?>&nbsp;</td>
-		<td><?php echo $contact['Contact']['modified']; ?>&nbsp;</td>
+		<?php
+                /*<td><?php echo $contact['Contact']['created']; ?>&nbsp;</td>
+		<td><?php echo $contact['Contact']['modified']; ?>&nbsp;</td>*/
+                ?>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $contact['Contact']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $contact['Contact']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $contact['Contact']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $contact['Contact']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $contact['Contact']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $contact['Contact']['id'])); ?>
+			<?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $contact['Contact']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $contact['Contact']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -48,9 +56,8 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                
+                
             </tr>
         </tfoot>
 	</table>

@@ -3,13 +3,13 @@
 	<fieldset>
  		<legend><?php __('Cadastro'); ?></legend>
 	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
+		echo $this->Form->input('username', array('label'=>'Usu&aacute;rio'));
+		echo $this->Form->input('password', array('label'=>'Senha'));
 //		echo $this->Form->input('group_id');
-		echo $this->Form->input('email');
-		echo $this->Form->input('first_name');
-		echo $this->Form->input('last_name');
-		echo $this->Form->input('phone');
+		echo $this->Form->input('email', array('label'=>'E-mail'));
+		echo $this->Form->input('first_name', array('label'=>'Nome'));
+		echo $this->Form->input('last_name', array('label'=>'Sobrenome'));
+		echo $this->Form->input('phone', array('label'=>'Telefone'));
 //                echo $this->Form->input('active');
 	?>
 	</fieldset>

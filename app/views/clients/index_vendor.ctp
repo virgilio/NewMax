@@ -11,7 +11,7 @@
                 ?>
 
                 <th><?php echo $this->Paginator->sort('name');?></th>
-                <th class="actions"><?php __('Actions');?></th>
+                <th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
             </tr>
         </thead>
         <?php
@@ -31,7 +31,7 @@
                 ?>
             <td><?php echo $client['Client']['name']; ?>&nbsp;</td>
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true), array('action' => 'view', $client['Client']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $client['Client']['id'])); ?>
                     <?php
                     /*echo $this->Html->link(__('Edit', true), array('action' => 'edit', $client['Client']['id'])); ?>
                         echo $this->Html->link(__('Delete', true), array('action' => 'delete', $client['Client']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $client['Client']['id']));*/

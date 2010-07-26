@@ -1,14 +1,14 @@
 <div class="visits index_">
-    <h2><?php __('Visits');?></h2>
+    <h2><?php __('Visitas');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>
 
-                <th><?php echo $this->Paginator->sort('cronogram_id');?></th>
-                <th><?php echo $this->Paginator->sort('client_id');?></th>
-                <th><?php echo $this->Paginator->sort('user_id');?></th>
-                <th><?php echo $this->Paginator->sort('date');?></th>
-                <th><?php echo $this->Paginator->sort('done');?></th>
+                <th><?php echo $this->Paginator->sort('Cronograma','cronogram_id');?></th>
+                <th><?php echo $this->Paginator->sort('Cliente','client_id');?></th>
+                <th><?php echo $this->Paginator->sort('Vendedor','user_id');?></th>
+                <th><?php echo $this->Paginator->sort('Data','date');?></th>
+                <th><?php echo $this->Paginator->sort('Feita','done');?></th>
                 <?php
                 /*<th><?php echo $this->Paginator->sort('id');?></th>
                         <th><?php echo $this->Paginator->sort('report');?></th>
@@ -16,7 +16,7 @@
 			<th><?php echo $this->Paginator->sort('modified');?></th>*/
                 ?>
 
-                <th class="actions"><?php __('Actions');?></th>
+                <th class="actions"><?php __('A&ccedil&otilde;es');?></th>
             </tr>
         </thead>
         <?php

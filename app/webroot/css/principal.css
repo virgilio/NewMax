@@ -221,14 +221,33 @@ p {
     margin:0;
     padding-left:10px;
 }
-.view_ h2 {
-    margin-bottom:10px;
+
+.view_ dl {
+    border-bottom:10px solid #0D213C;
+    border-top:10px solid #0D213C;
+    width:700px;
+    margin:0 auto;
+}
+.view_ dd {
+    padding-bottom:5px;
+    padding-top:5px;
+}
+.view_ dd.altrow {
+    background-color:#E0E0E0;
+}
+.view_ dd:hover {
+    background-color:white;
+}
+.view_ dd {
+    background-color:#CCCCCC;
+    border-bottom:1px solid #999999;
 }
 .view_ dt {
-    width:150px;
     float:left;
-    text-align:right;
-    padding-right:10px;
     font-weight:bold;
-    margin-left:325px;
+    margin-left:195px;
+    padding-right:10px;
+    text-align:right;
+    width:150px;
+    padding-top:5px;
 }

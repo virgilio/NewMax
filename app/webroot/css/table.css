@@ -10,6 +10,11 @@
     color: #ffffff;
 }
 
+.table_general_layout thead a {
+    color: #ffffff;
+
+}
+
 .table_general_layout thead tr th {
     padding: 10px 6px;
 }

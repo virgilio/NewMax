@@ -42,10 +42,10 @@
         echo $this->Html->css('text');
 
         echo $this->Html->script('jquery');
-        echo $this->Html->script('jquery.tipsy');
         echo $this->Html->script('kwicks');
         echo $this->Html->script('custom');
         echo $this->Html->script('jquery.corner');
+        echo $this->Html->script('jquery.tipsy');
 
 
         echo $scripts_for_layout;
@@ -64,7 +64,9 @@
                     $('#form_login').slideUp('fast', function() {
                         $('#login').corner("4px");
                     });
-                })
+                });
+
+                $('.visit').tipsy({gravity: $.fn.tipsy.autoNS, html: true});
             });
 
         </script>

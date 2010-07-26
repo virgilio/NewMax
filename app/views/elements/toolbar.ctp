@@ -26,7 +26,7 @@ if($session->read('Auth.User') != null) {
     ?>
 
     <?php
-    if($userInfo['group_id'] <= 2 && $this->name == 'Visits') { // admin
+    if($userInfo['group_id'] <= 2 && $this->name == 'Visits' && $this->action != 'calendar' && $this->action != 'calendar_vendor') { // admin
         ?>
 <div id="toolbar">
     <ul class="container_12">

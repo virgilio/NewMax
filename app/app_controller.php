@@ -248,6 +248,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Visits/edit');
         $this->Acl->allow($group, 'controllers/Visits/index');
         $this->Acl->allow($group, 'controllers/Visits/view');
+        $this->Acl->allow($group, 'controllers/Visits/calendar');
 
 
         //Manager permissions
@@ -284,6 +285,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Visits/edit');
         $this->Acl->allow($group, 'controllers/Visits/index');
         $this->Acl->allow($group, 'controllers/Visits/view');
+        $this->Acl->allow($group, 'controllers/Visits/calendar');
 
 
         //Vendors permissions
@@ -305,6 +307,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Visits/edit_vendor');
         $this->Acl->allow($group, 'controllers/Visits/index_vendor');
         $this->Acl->allow($group, 'controllers/Visits/view');
+        $this->Acl->allow($group, 'controllers/Visits/calendar_vendor');
 
 
     }

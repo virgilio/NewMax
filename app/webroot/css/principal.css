@@ -136,12 +136,13 @@ p {
     border-left:2pt solid #0D213C;
     border-right:2pt solid #0D213C;
     color:#000000;
-    font-size:0.7em;
+    font-size:0.8em;
     height:15px;
     margin-left:130px;
     padding:0;
     text-align:center;
     width:700px;
+    margin-bottom: 0;
 }
 .days_calendar li{
     display:block;
@@ -230,6 +231,7 @@ p {
 }
 
 .view_ dl {
+    -moz-border-radius:10px;
     border-bottom:10px solid #0D213C;
     border-top:10px solid #0D213C;
     width:700px;

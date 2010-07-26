@@ -131,5 +131,14 @@ class VisitsController extends AppController {
         $this->Session->setFlash(__('Visita n&atilde;o excluida', true));
         $this->redirect(array('action' => 'index'));
     }
+
+    function calendar (){
+
+    }
+
+    function calendar_vendor (){
+
+    }
+
 }
 ?>

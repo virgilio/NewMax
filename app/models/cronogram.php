@@ -2,9 +2,9 @@
 class Cronogram extends AppModel {
     var $name = 'Cronogram';
 
-    var $virtualFields = array(
-            'full_name' => 'CONCAT(User.first_name, " ", User.last_name)'
-    );
+//    var $virtualFields = array(
+//            'full_name' => 'CONCAT(User.first_name, " ", User.last_name)'
+//    );
 
     var $validate = array(
             'client_id' => array(

@@ -14,14 +14,14 @@
 			<?php echo $this->Html->link($visit['Cronogram']['id'], array('controller' => 'cronograms', 'action' => 'view', $visit['Cronogram']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Clienta'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cliente'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($visit['Client']['name'], array('controller' => 'clients', 'action' => 'view', $visit['Client']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Usu&aacute;rio'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($visit['User']['id'], array('controller' => 'users', 'action' => 'view', $visit['User']['id'])); ?>
+			<?php echo $this->Html->link($visit['User']['full_name'], array('controller' => 'users', 'action' => 'view', $visit['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data'); ?></dt>

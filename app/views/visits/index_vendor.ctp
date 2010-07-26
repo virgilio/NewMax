@@ -58,7 +58,7 @@
                     $visitDay = strtotime($visit['Visit']['date']);
 
                     //Se ainda nao passou a data da visita e eh um calendario avulso
-                    if($visit['Cronogram']['id'] == null && $today < $visitDay) {
+                    if($visit['Visit']['done'] == 0) {
 
                         //mostra edit e delete paa a visita
                         ?>

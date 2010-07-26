@@ -78,9 +78,13 @@ class VisitsController extends AppController {
             $client = $this->Visit->Client->findById($this->data['Visit']['client_id']);
             $this->data['Visit']['user_id'] = $client['Client']['user_id'];
 
-            if ($this->Visit->save($this->data)) {
+            if($this->data['Visit']['report'] == null){
+                $this->Session->setFlash(__('Impossível salvar relatório vazio.', true));
+                $this->redirect(array('action' => 'index_vendor'));
+            }
+            else if ($this->Visit->save($this->data)) {
                 $this->Session->setFlash(__('Visita salva.', true));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'index_vendor'));
             } else {
                 $this->Session->setFlash(__('Visita n&atilde;o salva. Tente novamente.', true));
             }

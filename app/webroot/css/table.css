@@ -6,27 +6,28 @@
 }
 
 .table_general_layout thead {
-    background-color: #0d213c;
     color: #ffffff;
 }
 
 .table_general_layout thead a {
     color: #ffffff;
-
 }
 
 .table_general_layout thead tr th {
     padding: 10px 6px;
+	background-color: #0d213c;
 }
 
 .table_general_layout thead tr th:first-child {
     -webkit-border-radius: 10px 0 0 0;
     -moz-border-radius: 10px 0 0 0;
+	background-color: #0d213c;
 }
 
 .table_general_layout thead tr th:last-child {
     -webkit-border-radius: 0 10px 0 0;
     -moz-border-radius: 0 10px 0 0;
+	background-color: #0d213c;
 }
 
 .table_general_layout tbody {
@@ -67,7 +68,6 @@
 }
 
 .table_general_layout tfoot {
-    background-color: #0d213c;
     color: #ffffff;
 }
 
@@ -81,3 +81,6 @@
     -moz-border-radius: 0 0 10px 0;
 }
 
+.table_general_layout tfoot tr td {
+	background-color: #0d213c;
+}

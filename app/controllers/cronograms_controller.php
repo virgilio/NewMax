@@ -3,6 +3,22 @@ class CronogramsController extends AppController {
 
 	var $name = 'Cronograms';
 
+        function disable($id) {
+		if ($id) {
+                    $this->Session->setFlash(__('Desativa essa budega aí!', true));
+		}
+		else{
+                    if(!empty ($this->data)){
+                        $this->Session->setFlash(__('Desativa essas bugeda aí!', true));
+                    }
+                    else{
+                        $this->Session->setFlash(__('Selecione os cronogramas para desativá-los!', true));
+                    }
+                }
+                $this->redirect(array('action' => 'index'));
+	}
+
+
         function index() {
             $this->Cronogram->recursive = 0;
             $this->paginate['Cronogram'] = array(

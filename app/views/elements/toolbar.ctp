@@ -41,8 +41,8 @@ if($session->read('Auth.User') != null) {
         ?>
 <div id="toolbar">
     <ul class="container_12">
-        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'cronograms', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'cronograms', 'action' => 'disable'),null, 'Tem certeza que deseja desativar todos os cronogramas selecionados?'); ?></li>
     </ul>
 </div>
         <?php
@@ -80,3 +80,4 @@ if($session->read('Auth.User') != null) {
     }
 }
 ?>
+

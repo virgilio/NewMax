@@ -1,8 +1,10 @@
 <div class="cronograms index_">
     <h2><?php __('Cronograms');?></h2>
+    <?php echo $form->create('disableCronogram'); ?>
     <table cellpadding="0" cellspacing="0" class="table_general_layout" >
         <thead
             <tr>
+                <th><?php echo 'Desativar';?></th>
                 <th><?php echo $this->Paginator->sort('client_id');?></th>
                 <th><?php echo $this->Paginator->sort('Nome', 'User.first_name');?></th>
                 <th><?php echo $this->Paginator->sort('start');?></th>
@@ -26,6 +28,17 @@
         <tr<?php echo $class;?>>
 
             <td>
+                <?php echo $form->input(
+                        $cronogram['Cronogram']['id'],
+                        array(
+                            'label' => false,
+                            'type' => 'checkbox',
+                            'id' => $cronogram['Cronogram']['id']
+                        )
+                );?>
+            </td>
+
+            <td>
                     <?php echo $this->Html->link($cronogram['Client']['name'], array('controller' =>'clients', 'action' => 'view', $cronogram['Client']['id'])); ?>
             </td>
             <td>
@@ -40,9 +53,11 @@
                     <?php echo $this->Html->link(__('Edit', true),array('action' => 'edit', $cronogram['Cronogram']['id'])); ?>
             </td>
         </tr>
-        <?php endforeach; ?>
+        <?php endforeach;?>
+
         <tfoot>
             <tr>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -53,6 +68,8 @@
             </tr>
         </tfoot>
     </table>
+    
+    <?php echo $form->end();?>
 
     <div class="paging">
         <?php echo $this->Paginator->prev('<< ' . __('previous',true), array(), null, array('class'=>'disabled'));?>

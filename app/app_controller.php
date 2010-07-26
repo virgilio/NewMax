@@ -226,6 +226,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Cronograms/edit');
         $this->Acl->allow($group, 'controllers/Cronograms/index');
         $this->Acl->allow($group, 'controllers/Cronograms/view');
+        $this->Acl->allow($group, 'controllers/Cronograms/disable');
         //Groups
         $this->Acl->allow($group, 'controllers/Groups/add');
         $this->Acl->allow($group, 'controllers/Groups/edit');
@@ -260,6 +261,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Cronograms/edit');
         $this->Acl->allow($group, 'controllers/Cronograms/index');
         $this->Acl->allow($group, 'controllers/Cronograms/view');
+        $this->Acl->allow($group, 'controllers/Cronograms/disable');
         //Users
         $this->Acl->allow($group, 'controllers/Users/add');
         $this->Acl->allow($group, 'controllers/Users/edit');

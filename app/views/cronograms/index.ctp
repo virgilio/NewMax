@@ -6,7 +6,7 @@
             <tr>
                 <th><?php echo 'Desativar';?></th>
                 <th><?php echo $this->Paginator->sort('client_id');?></th>
-                <th><?php echo $this->Paginator->sort('Nome', 'User.first_name');?></th>
+                <th><?php echo $this->Paginator->sort('Nome', 'full_name');?></th>
                 <th><?php echo $this->Paginator->sort('start');?></th>
                 <th><?php echo $this->Paginator->sort('frequency');?></th>
                 <th><?php echo $this->Paginator->sort('period');?></th>

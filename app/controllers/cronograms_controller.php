@@ -20,10 +20,9 @@ class CronogramsController extends AppController {
 
 
         function index() {
+            $this->loadModel('User');
+            $this->virtualFields['full_name'] = $this->User->virtualFields['full_name'];
             $this->Cronogram->recursive = 0;
-            $this->paginate['Cronogram'] = array(
-                'order' => 'User.first_name'
-            );
             $this->set('cronograms', $this->paginate('Cronogram'));
         }
  

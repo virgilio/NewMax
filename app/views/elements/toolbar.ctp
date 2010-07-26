@@ -42,9 +42,9 @@ if($session->read('Auth.User') != null) {
 <div id="toolbar">
     <ul class="container_12">
         <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'cronograms', 'action' => 'add')); ?></li>
-        <?php 
-        /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'cronograms', 'action' => 'disable'),null, 'Tem certeza que deseja desativar todos os cronogramas selecionados?'); ?></li>*/
-        ?>
+                <?php
+                /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'cronograms', 'action' => 'disable'),null, 'Tem certeza que deseja desativar todos os cronogramas selecionados?'); ?></li>*/
+                ?>
     </ul>
 </div>
         <?php
@@ -55,8 +55,6 @@ if($session->read('Auth.User') != null) {
 <div id="toolbar">
     <ul class="container_12">
         <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'users', 'action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'users', 'action' => 'update')); ?></li>
-        <li><?php echo $this->Html->link(__('Demitir', true), array('controller' => 'users', 'action' => 'update')); ?></li>
     </ul>
 </div>
         <?php
@@ -66,19 +64,38 @@ if($session->read('Auth.User') != null) {
 <div id="toolbar">
     <ul class="container_12">
         <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'clients', 'action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'clients', 'action' => 'update')); ?></li>
+        <?php /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'clients', 'action' => 'edit/' . $client['Client']['id'])); ?></li> */?>
+                <?php
+                if($this->action == 'view') {
+                    ?>
+        <li><?php echo $this->Html->link(__('Contatos', true), array('controller' => 'contacts', 'action' => 'index/' . $client['Client']['id'])); ?></li>
+
+                    <?php
+                }
+                ?>
     </ul>
 </div>
         <?php
     }
     else if($this->name == 'Users' && $this->action == 'view') { // admin
-    ?>
+        ?>
 <div id="toolbar">
     <ul class="container_12">
-        <li><?php echo $this->Html->link(__('Editar', true), array('controller' => 'clients', 'action' => 'edit')); ?></li>
+        <li><?php echo $this->Html->link(__('Editar', true), array('controller' => 'users', 'action' => 'edit/' . $user['User']['id'])); ?></li>
+        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'users', 'action' => 'disable/' . $user['User']['id'])); ?></li>
     </ul>
 </div>
-    <?php
+        <?php
+    }
+
+    else if($this->name == 'Contacts') { // admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Novo Contato', true), array('controller' => 'contacts', 'action' => 'add')); ?></li>
+    </ul>
+</div>
+        <?php
     }
 }
 ?>

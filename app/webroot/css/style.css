@@ -1,7 +1,6 @@
-body{
+body {
+    font-family:Verdana,Arial,Helvetica,sans-serif;
     font-size:0.85em;
-    font-family:Verdana, Arial, Helvetica, sans-serif;
-
 }
 .kwicksManager {
     list-style:none outside none;
@@ -9,203 +8,208 @@ body{
     padding:0;
     position:relative;
 }
-
 .kwicksVendor {
     list-style:none outside none;
     margin:0 95px;
     padding:0;
     position:relative;
 }
-
 .kwicksAnon {
     list-style:none outside none;
     margin:0 185px;
     padding:0;
     position:relative;
 }
-
-.kwicks li{
-    display: block;
-    overflow: hidden;
-    padding: 0;
-    cursor: pointer;
-    float: left;
-    width: 90px;
-    height: 40px;
-    margin-right: 0px;
-    background-image:url(../img/kwicks_sprite.png);
+.kwicks li {
+    background-image:url("../img/kwicks_sprite.png");
     background-repeat:no-repeat;
+    cursor:pointer;
+    display:block;
+    float:left;
+    height:40px;
+    margin-right:0;
+    overflow:hidden;
+    padding:0;
+    width:90px;
 }
-.kwicks a{
+.kwicks a {
     display:block;
     height:40px;
+    outline:medium none;
     text-indent:-9999px;
-    outline:none;
 }
-
 #kwick1 {
-    background-position:0px 0px;
+    background-position:0 0;
 }
 #kwick2 {
-    background-position:-140px 0px;
+    background-position:-140px 0;
 }
 #kwick3 {
-    background-position:-280px 0px;
+    background-position:-280px 0;
 }
 #kwick4 {
-    background-position:-420px 0px;
+    background-position:-420px 0;
 }
-#kwick5{
-    background-position:-560px 0px;
+#kwick5 {
+    background-position:-560px 0;
 }
 #kwick6 {
-    background-position:-700px 0px;
+    background-position:-700px 0;
 }
 #kwick7 {
-    background-position:-840px 0px;
+    background-position:-840px 0;
 }
-#kwick8{
-    background-position:-980px 0px;
+#kwick8 {
+    background-position:-980px 0;
 }
 #kwick9 {
-    background-position:-1120px 0px;
+    background-position:-1120px 0;
 }
-
 #kwick1.active, #kwick1:hover {
-    background-position: 0 bottom;
+    background-position:0 bottom;
 }
-#kwick2.active, #kwick2:hover{
-    background-position: -140px bottom;
+#kwick2.active, #kwick2:hover {
+    background-position:-140px bottom;
 }
 #kwick3.active, #kwick3:hover {
-    background-position: -280px bottom;
+    background-position:-280px bottom;
 }
 #kwick4.active, #kwick4:hover {
-    background-position: -420px bottom;
+    background-position:-420px bottom;
 }
 #kwick5.active, #kwick5:hover {
-    background-position: -560px bottom;
+    background-position:-560px bottom;
 }
 #kwick6.active, #kwick6:hover {
-    background-position: -700px bottom;
+    background-position:-700px bottom;
 }
 #kwick7.active, #kwick7:hover {
-    background-position: -840px bottom;
+    background-position:-840px bottom;
 }
 #kwick8.active, #kwick8:hover {
-    background-position: -980px bottom;
+    background-position:-980px bottom;
 }
 #kwick9.active, #kwick9:hover {
-    background-position: -1120px bottom;
+    background-position:-1120px bottom;
 }
-
-/** Forms **/
 form {
-    clear: both;
-    margin-right: 20px;
-    padding: 0;
-    width: 95%;
+    clear:both;
+    margin-right:20px;
+    padding:0;
+    width:95%;
 }
 fieldset {
-    border: 1px solid #ccc;
-    margin-bottom: 0;
-    padding: 0;
+    -moz-border-radius:8px 8px 8px 8px;
+    background-color:#E0E0E0;
+    margin:0 auto;
+    padding:10px;
+    width:700px;
 }
 fieldset legend {
-    background:#fff;
-    color: #e32;
-    font-size: 160%;
-    font-weight: bold;
+    background:none repeat scroll 0 0 transparent;
+    color:#0D213C;
+    font-size:1.5em;
+    font-weight:bold;
+}
+fieldset label {
+    float:left;
+    padding-right:10px;
+    text-align:right;
+    width:200px;
+}
+fieldset input {
+    height:10px;
+    width:300px;
 }
 fieldset fieldset {
-    margin-top: 0px;
-    margin-bottom: 20px;
-    padding: 16px 10px;
+    margin-bottom:20px;
+    margin-top:0;
+    padding:16px 10px;
 }
 fieldset fieldset legend {
-    font-size: 120%;
-    font-weight: normal;
+    font-size:120%;
+    font-weight:normal;
 }
 fieldset fieldset div {
-    clear: left;
-    margin: 0 20px;
+    clear:left;
+    margin:0 20px;
 }
 form div {
-    clear: both;
-    padding: .5em;
-    vertical-align: text-top;
+    clear:both;
+    padding:0.5em;
+    vertical-align:text-top;
 }
 form .input {
-    color: #444;
+    color:#444444;
 }
 form .required {
-    font-weight: bold;
+    font-weight:bold;
 }
 form .required label:after {
-    color: #e32;
-    content: '*';
+    color:#EE3322;
+    content:"*";
     display:inline;
 }
 form div.submit {
-    border: 0;
-    clear: both;
+    border:0 none;
+    clear:both;
+    margin:0 auto;
+    width:700px;
 }
 label {
-    display: block;
-    font-size: 110%;
+    display:block;
+    font-size:110%;
     margin-bottom:3px;
 }
 input, textarea {
-    clear: both;
-    font-size: 140%;
-    font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-    padding: 1%;
+    clear:both;
+    font-family:"frutiger linotype","lucida grande","verdana",sans-serif;
+    padding:1%;
     width:98%;
 }
 select {
-    clear: both;
-    font-size: 120%;
-    vertical-align: text-bottom;
+    clear:both;
+    font-size:120%;
+    vertical-align:text-bottom;
 }
-select[multiple=multiple] {
-    width: 100%;
+select[multiple="multiple"] {
+    width:100%;
 }
 option {
-    font-size: 120%;
-    padding: 0 3px;
+    font-size:120%;
+    padding:0 3px;
 }
-input[type=checkbox] {
-    clear: left;
-    float: left;
-    margin: 0px 6px 7px 2px;
-    width: auto;
+input[type="checkbox"] {
+    clear:left;
+    float:left;
+    margin:0 6px 7px 2px;
+    width:auto;
 }
 div.checkbox label {
-    display: inline;
+    display:inline;
 }
-input[type=radio] {
+input[type="radio"] {
     float:left;
+    margin:0 3px 7px 0;
     width:auto;
-    margin: 0 3px 7px 0;
 }
 div.radio label {
-    margin: 0 0 6px 20px;
+    margin:0 0 6px 20px;
 }
-input[type=submit] {
-    display: inline;
-    font-size: 110%;
-    width: auto;
+input[type="submit"] {
+    display:inline;
+    font-size:110%;
+    width:auto;
 }
-form .submit input[type=submit] {
-    background:#62af56;
-    background: -webkit-gradient(linear, left top, left bottom, from(#a8ea9c), to(#62af56));
-    background-image: -moz-linear-gradient(top, #a8ea9c, #62af56);
-    border-color: #2d6324;
-    color: #000;
-    text-shadow: #8cee7c 0px 1px 0px;
+form .submit input[type="submit"] {
+    -moz-border-radius:8px 8px 8px 8px;
+    background:-moz-linear-gradient(center top , #466388, #0D213C) repeat scroll 0 0 #0D213C;
+    border-color:#000066;
+    color:#FFFFFF;
+    cursor:pointer;
+    text-shadow:0 1px 0 #BFBFBF;
 }
-form .submit input[type=submit]:hover {
-    background:#4ca83d;
-    background: -webkit-gradient(linear, left top, left bottom, from(#85e573), to(#4ca83d));
-    background-image: -moz-linear-gradient(top, #85e573, #4ca83d);
+form .submit input[type="submit"]:hover {
+    background:-moz-linear-gradient(center top , #0D213C, #466388) repeat scroll 0 0 #466388;
+    border-color:#000099;
 }

@@ -241,6 +241,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Users/enable');
         $this->Acl->allow($group, 'controllers/Users/accept');
         $this->Acl->allow($group, 'controllers/Users/refuse');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/add');
         $this->Acl->allow($group, 'controllers/Visits/edit');
@@ -275,6 +276,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Users/enable');
         $this->Acl->allow($group, 'controllers/Users/accept');
         $this->Acl->allow($group, 'controllers/Users/refuse');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/add');
         $this->Acl->allow($group, 'controllers/Visits/edit');
@@ -296,6 +298,7 @@ class AppController extends Controller {
         //Users
         $this->Acl->allow($group, 'controllers/Users/edit_vendor');
         $this->Acl->allow($group, 'controllers/Users/view');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/edit_vendor');
         $this->Acl->allow($group, 'controllers/Visits/index_vendor');

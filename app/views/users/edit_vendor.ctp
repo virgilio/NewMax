@@ -1,25 +1,6 @@
 <!-- VIEW UTILIZADA POR VENDEDORES-->
 
 <div class="users form">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<?php echo $this->Form->create('User');?>
-	<fieldset>
- 		<legend><?php __('Editar Usuário'); ?></legend>
-	<?php
-//		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-//		echo $this->Form->input('password');
-//		echo $this->Form->input('group_id');
-		echo $this->Form->input('email');
-		echo $this->Form->input('first_name');
-		echo $this->Form->input('last_name');
-		echo $this->Form->input('phone');
-//                echo $this->Form->input('active');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Salvar', true));?>
-
     <?php echo $this->Form->create('User');?>
     <fieldset>
         <legend><?php __('Editar Usuário ' . $this->Form->value('User.first_name') . ' ' . $this->Form->value('User.last_name')); ?></legend>

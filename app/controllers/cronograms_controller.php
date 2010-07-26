@@ -15,7 +15,7 @@ class CronogramsController extends AppController {
                     if($cronogram != null){
                         if($this->unScheduleVisits($cronogram)){
                             if($this->Cronogram->save($data))
-                                $this->Session->setFlash(__('Cronograma desativado!', true));
+                                $this->Session->setFlash(__('Cronograma desabilitado!', true));
                             else
                                 $this->Session->setFlash(__('Erro em cascata ao desabilitar cronograma. Contate um administrador!', true));
                         }

@@ -5,10 +5,10 @@
         <thead
             <tr>
                 <th><?php echo $this->Paginator->sort('Cliente','client_id');?></th>
-                <th><?php echo $this->Paginator->sort('Nome', 'full_name');?></th>
+                <th><?php echo $this->Paginator->sort('Vendedor', 'full_name');?></th>
                 <th><?php echo $this->Paginator->sort('Início','start');?></th>
                 <th><?php echo $this->Paginator->sort('Periodicidade','frequency');?></th>
-                <th><?php echo $this->Paginator->sort('Período','period');?></th>
+                <th><?php echo $this->Paginator->sort('Duração','period');?></th>
                 <th><?php echo $this->Paginator->sort('Ativo','active');?></th>
 
 
@@ -36,7 +36,12 @@
             <td><?php echo $cronogram['Cronogram']['start']; ?>&nbsp;</td>
             <td><?php echo $cronogram['Cronogram']['frequency']; ?>&nbsp;</td>
             <td><?php echo $cronogram['Cronogram']['period']; ?>&nbsp;</td>
-            <td><?php echo $cronogram['Cronogram']['active']; ?>&nbsp;</td>
+            <td><?php
+                if ($cronogram['Cronogram']['active'] == 1)
+                    echo 'Sim';
+                else
+                    echo 'N&atilde;o';
+            ?>&nbsp;</td>
             <td class="actions">
                     <?php echo $this->Html->link(__('Ver', true),array('action' => 'view', $cronogram['Cronogram']['id'])); ?>
                     <?php echo $this->Html->link(__('Editar', true),array('action' => 'edit', $cronogram['Cronogram']['id'])); ?>

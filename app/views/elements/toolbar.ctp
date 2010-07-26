@@ -89,7 +89,7 @@ if($session->read('Auth.User') != null) {
 </div>
         <?php
     }
-    else if($this->name == 'Users' && $this->action == 'view') { // admin
+    else if($userInfo['group_id'] <= 2 && $this->name == 'Users' && $this->action == 'view') { // admin
         ?>
 <div id="toolbar">
     <ul class="container_12">

@@ -13,7 +13,7 @@
 
                 <th><?php echo $this->Paginator->sort('Início','start');?></th>
                 <th><?php echo $this->Paginator->sort('Periodicidade','frequency');?></th>
-                <th><?php echo $this->Paginator->sort('Período','period');?></th>
+                <th><?php echo $this->Paginator->sort('Duração','period');?></th>
                 <th><?php echo $this->Paginator->sort('Ativo','active');?></th>
                 <th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
             </tr>
@@ -44,7 +44,7 @@
             <td><?php echo $cronogram['Cronogram']['active']; ?>&nbsp;</td>
 
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true), array('action' => 'Ver', $cronogram['Cronogram']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $cronogram['Cronogram']['id'])); ?>
                     <?php
                     /*echo $this->Html->link(__('Edit', true), array('action' => 'edit', $cronogram['Cronogram']['id']));*/
                     ?>

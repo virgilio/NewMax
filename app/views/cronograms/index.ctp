@@ -3,7 +3,7 @@
    <table cellpadding="0" cellspacing="0">
        <tr>
            <th><?php echo $this->Paginator->sort('client_id');?></th>
-           <th><?php echo $this->Paginator->sort('username','User.username');?></th>
+           <th><?php echo $this->Paginator->sort('Nome', 'User.first_name');?></th>
            <th><?php echo $this->Paginator->sort('start');?></th>
            <th><?php echo $this->Paginator->sort('frequency');?></th>
            <th><?php echo $this->Paginator->sort('period');?></th>
@@ -26,7 +26,7 @@
                    <?php echo $this->Html->link($cronogram['Client']['name'], array('controller' =>'clients', 'action' => 'view', $cronogram['Client']['id'])); ?>
            </td>
            <td>
-                   <?php echo $this->Html->link($cronogram['User']['username'], array('controller'=> 'users', 'action' => 'view', $cronogram['User']['id'])); ?>
+                   <?php echo $this->Html->link($cronogram['User']['first_name'].' '.$cronogram['User']['last_name'], array('controller'=> 'users', 'action' => 'view', $cronogram['User']['id'])); ?>
            </td>
            <td><?php echo $cronogram['Cronogram']['start']; ?>&nbsp;</td>
            <td><?php echo $cronogram['Cronogram']['frequency']; ?>&nbsp;</td>

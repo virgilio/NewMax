@@ -6,7 +6,7 @@ class CronogramsController extends AppController {
         function index() {
             $this->Cronogram->recursive = 0;
             $this->paginate['Cronogram'] = array(
-                'order' => 'User.username'
+                'order' => 'User.first_name'.' '.'User.last_name'
             );
             $this->set('cronograms', $this->paginate('Cronogram'));
         }
@@ -63,17 +63,54 @@ class CronogramsController extends AppController {
 	}
 
 	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+                $actualCronogram = $this->Cronogram->findById($id);
+                $start = $actualCronogram['Cronogram']['start'];
+                $startTime = strtotime($start);
+                $startDate = getdate(strtotime($start));
+                $frequency = $actualCronogram['Cronogram']['frequency'];
+
+                if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid cronogram', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Cronogram->save($this->data)) {
-				$this->Session->setFlash(__('The cronogram has been saved', true));
+                    
+                    $newPeriod = $this->data['Cronogram']['period'];
+                    //time do novo fim
+                    $newEnd = mktime(0,0,0,$startDate['mon'], $startDate['mday']+$newPeriod, $startDate['year']);
+                    //diferença de dias entre o novo fim e o inicio
+                    $interval = $newEnd - $startTime;
+                    //time da frequencia
+                    $frequencyTime = mktime(0,0,0,0,$frequency,0) - mktime(0,0,0,0,0,0);
+
+                    //Se a nova data de fim é menor do que hoje
+                    if($newEnd < time()){
+                        $this->Session->setFlash(__('O fim do cronograma deve ser posterior à data atual', true));
+                    }
+                    //Se o tempo do inicio ao fim do cronograma não permite visitas
+                    if( $interval < $frequencyTime){
+                        $this->Session->setFlash(__('A data final deve permitir ao menos uma visita!', true));
+                    }
+                    else{
+                        if ($this->Cronogram->save($this->data)) {
+                            $reScheduleVisits = $this->reScheduleVisits($actualCronogram, $this->data);
+                            if($reScheduleVisits[0]){
+                                $this->Session->setFlash(__('Cronograma modificado', true));
 				$this->redirect(array('action' => 'index'));
+                            }
+                            else{
+                                $this->data['Cronogram']['period'] = $actualCronogram['Cronogram']['period'];
+                                if($this->Cronogram->save($this->data)){
+                                    $this->Session->setFlash(__($reScheduleVisits[1], true));
+                                }
+                                else{
+                                    $this->Session->setFlash(__('O cronograma foi alterado mas ocorreu um erro. '.$reScheduleVisits[1], true));
+                                }
+                            }
 			} else {
-				$this->Session->setFlash(__('The cronogram could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('O cronograma não pode ser remarcado.', true));
 			}
+                    }
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Cronogram->read(null, $id);
@@ -83,6 +120,83 @@ class CronogramsController extends AppController {
                 $this->set('cronogram', $this->Cronogram->read(null, $id));
 		$this->set(compact('clients', 'users'));
 	}
+
+        function reScheduleVisits($actualCronogram = null, $data = null){
+            if($data != null && $actualCronogram != null){
+                //Carregando o modelo Visit
+                $this->loadModel('Visit');
+
+                //Pegando time do inicio do cronograma ja existente e do dia atual
+                $start = $actualCronogram['Cronogram']['start'];
+                $startTime = strtotime($start);
+                $today = date('Y-m-d');
+                $todayTime = strtotime($today);
+
+                //'Time' ja coberto até hoje, do cronograma
+                $coveredTime = $todayTime - $startTime;
+
+                //Se ja foi coberto algo
+                if($coveredTime > 0){
+                    //Seta periodo para a nova chamada do scheduleVisits
+                    $newPeriod = $data['Cronogram']['period'] - ($coveredTime/(60*60*24));
+                    //'Time' inicial para a nova chamada do scheduleVisits
+                    $startReschedule = $todayTime;
+                }
+                //Senao
+                else{
+                    //Seta periodo para a nova chamada do scheduleVisits
+                    $newPeriod = $data['Cronogram']['period'];
+                    //'Time' inicial para a nova chamada do scheduleVisits
+                    $startReschedule = $startTime;
+                }
+
+                //Próxima visita que ja estava no bd
+                $firstOldVisit = $this->Cronogram->Visit->find('first', array(
+                   'conditions' => array(
+                       'date >=' => date('Y-m-d',$startReschedule),
+                       'cronogram_id' => $actualCronogram['Cronogram']['id']
+                   )
+                ));
+
+                //Se não existia visita seta o inicio para start ou today
+                if($firstOldVisit == null){
+                    if($startTime > $todayTime){
+                        $rescheduleStart =  $start;
+                    }
+                    else{
+                        $rescheduleStart = $today;
+                    }
+                }
+
+                //Senao, deleta as entradas futuras do BD e seta a data inicial como
+                //a da proxima visita q tinha sido achada
+                else{
+                    $this->Cronogram->Visit->deleteAll(array(
+                        'cronogram_id'=>$actualCronogram['Cronogram']['id'],
+                        'date >=' =>  $firstOldVisit['Visit']['date'],
+                        'done' => '0'
+                    ));
+                    $rescheduleStart = $firstOldVisit['Visit']['date'];
+                }
+
+                //pegando 'date' do 'time' para o inicio
+                $rescheduleStartDate = getDate(strtotime($rescheduleStart));
+
+                //Criando e setando estrutura que sera utilizada na chamada do scheduleVisits
+                $newData = array();
+
+                $newData['Cronogram']['period'] = $newPeriod;
+                $newData['Cronogram']['frequency'] = $actualCronogram['Cronogram']['frequency'];
+                $newData['Cronogram']['start']['month'] = $rescheduleStartDate['mon'];
+                $newData['Cronogram']['start']['day'] = $rescheduleStartDate['mday'];
+                $newData['Cronogram']['start']['year'] = $rescheduleStartDate['year'];
+                $newData['Cronogram']['client_id'] = $actualCronogram['Cronogram']['client_id'];
+                $newData['Cronogram']['user_id'] = $actualCronogram['Cronogram']['user_id'];
+
+                return $this->scheduleVisits($newData, $actualCronogram['Cronogram']['id']);
+            }
+            return array(false, "");
+        }
 
         /*
          * Método utilizado para agendar as visitas do calendario criado
@@ -142,13 +256,13 @@ class CronogramsController extends AppController {
 
                     //Se não foi possível marcar a visita
                     if (!$this->Cronogram->Visit->save($dateVisitCorrect)){
-                        //Deleta visitas ja marcadas!
-                        if($this->Cronogram->Visit->deleteAll(array('Visit.calendar_id' => $calendarId))){
+                        //Deleta visitas ja marcadas (a partir do inicio definido)!
+                        if($this->Cronogram->Visit->deleteAll(array('Visit.calendar_id' => $calendarId, 'Visit.date >=' => $inicio))){
                             //Tudo ok na 'desmarcacao'
-                            return array(false,'Nenhuma visita foi marcada');
+                            return array(false,'Nenhuma visita foi (re)marcada');
                         }
                         //Erro na 'desmarcação'
-                        return array(false, 'Erro em cascata ao marcar visitas! CONTATAR O ADMINISTRADOR');
+                        return array(false, 'Erro em cascata ao (re)marcar visitas! CONTATAR O ADMINISTRADOR');
                     }
 
                     //Somando periodicidade na data (definindo proxima data)
@@ -161,9 +275,9 @@ class CronogramsController extends AppController {
 
                     $periodoRestante =  $periodoRestante - $periodicidade;
                 }
-                return array(true, 'Visitas marcadas.');
+                return array(true, 'Visitas (re)marcadas.');
             }
-            return array(false,'Nenhuma visita foi marcada');
+            return array(false,'Nenhuma visita foi (re)marcada');
         }
 
 

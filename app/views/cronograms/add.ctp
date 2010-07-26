@@ -1,4 +1,4 @@
-<div class="cronograms form">
+<div class="cronograms add_">
 <?php echo $this->Form->create('Cronogram');?>
 	<fieldset>
  		<legend><?php __('Add Cronogram'); ?></legend>
@@ -13,7 +13,8 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
-<div class="actions">
+<?php
+/*<div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('List Cronograms', true), array('action' => 'index'));?></li>
@@ -24,4 +25,5 @@
 		<li><?php echo $this->Html->link(__('List Visits', true), array('controller' => 'visits', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>*/
+?>

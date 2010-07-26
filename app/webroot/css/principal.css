@@ -4,15 +4,6 @@ body {
     font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
 }
 
-a {
-    color: orange;/*#fff;*/
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 h1 {
     color: #0D213C;
     font-weight: normal;
@@ -68,7 +59,7 @@ p {
     float:right;
     font-size:0.8em;
     font-weight:bold;
-    height:16px;
+    height:20px;
     margin-top:10px;
     padding-top:4px;
     text-align:center;
@@ -79,6 +70,17 @@ p {
     background-color:#FF4500;
     text-decoration: none;
 }
+
+#login a, #logout a {
+    color: orange;/*#fff;*/
+    text-decoration: none;
+}
+
+#login a:hover, #logout a:hover {
+    text-decoration: underline;
+}
+
+
 #toolbar{
     background-color:#F5F5F5;
     height:35px;
@@ -92,11 +94,13 @@ p {
     display:inline;
 }
 #toolbar ul li a{
-    color: #4F4F4F;
-    display: inline-block;
-    height: 23px;
-    padding-top:12px;
-    width: 120px;
+    color:#4F4F4F;
+    display:inline-block;
+    font-size:12px;
+    font-weight:bold;
+    height:26px;
+    padding-top:9px;
+    width:120px;
 }
 #toolbar ul li a:hover{
     background-color: #CFCFCF;
@@ -216,4 +220,15 @@ p {
     float:left;
     margin:0;
     padding-left:10px;
+}
+.view_ h2 {
+    margin-bottom:10px;
+}
+.view_ dt {
+    width:150px;
+    float:left;
+    text-align:right;
+    padding-right:10px;
+    font-weight:bold;
+    margin-left:325px;
 }

@@ -1,6 +1,7 @@
 <div class="contacts index">
 	<h2><?php __('Contacts');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" class="table_general_layout ">
+            <thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('client_id');?></th>
@@ -12,6 +13,7 @@
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
+            </thead>
 	<?php
 	$i = 0;
 	foreach ($contacts as $contact):
@@ -38,6 +40,19 @@
 		</td>
 	</tr>
 <?php endforeach; ?>
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
 	</table>
 	<p>
 	<?php

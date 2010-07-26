@@ -1,0 +1,105 @@
+/* BREADCRUMB */
+#content_header {
+    margin: 0 0 5px 0;
+}
+
+#breadcrumb {
+    font: 11px Arial, Helvetica, sans-serif;
+    background-image: url('../img/bc/bc_bg.gif');
+    background-repeat: repeat-x;
+    height: 30px;
+    line-height: 30px;
+    color: #888;
+    border: solid 1px #cacaca;
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#breadcrumb li {
+    list-style-type: none;
+    padding-left: 10px;
+    display: inline-block;
+    float: left;
+}
+
+#breadcrumb a {
+    display: inline-block;
+    background-image: url('../img/bc/bc_separator.gif');
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 15px;
+    text-decoration: none;
+    color: #333333;
+    outline: none;
+}
+
+.home {
+    border: none;
+    margin: 7px 0px 0 0;
+}
+
+#breadcrumb a:hover {
+    color: #35acc5;
+}
+
+/* PAGINATION LIST */
+
+#content_footer {
+	
+	margin:10px 0;
+}
+#pagination {
+    display: block;
+    margin: 5px auto 0 auto;
+    width: 80%;
+}
+
+#pagination li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    list-style: none;
+}
+
+#pagination a {
+    border: solid 1px #DDDDDD;
+    margin-right: 2px;
+}
+
+#pagination .previous-off, #pagination .next-off {
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding: 3px 4px;
+}
+
+#pagination .next a, #pagination .previous a {
+    font-weight: bold;
+    border: solid 1px #FFFFFF;
+}
+
+#pagination .active {
+    color: #ff8040;
+    font-weight: bold;
+    display: block;
+    float: left;
+    padding: 4px 6px;
+}
+
+#pagination a:link, #pagination a:visited {
+    color: #0063e3;
+    display: block;
+    float: left;
+    padding: 3px 6px;
+    text-decoration: none;
+}
+
+#pagination a:hover {
+    border: solid 1px #666666;
+}

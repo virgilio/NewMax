@@ -232,8 +232,8 @@ form {
 }
 fieldset {
 	border: 1px solid #ccc;
-	margin-bottom: 1em;
-	padding: 16px 20px;
+	margin-bottom: 0;
+	padding: 0;
 }
 fieldset legend {
 	background:#fff;

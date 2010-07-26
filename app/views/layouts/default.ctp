@@ -32,12 +32,17 @@
 //960.css  principal.css  reset.css  style.css
 //custom.js  jquery-1.2.6.min.js  jquery.corner.js  kwicks.js
 
+        echo $this->Html->css('reset');
         echo $this->Html->css('960');
         echo $this->Html->css('principal');
-        echo $this->Html->css('reset');
+        echo $this->Html->css('tipsy');
         echo $this->Html->css('style');
+        echo $this->Html->css('table');
+        echo $this->Html->css('breadcrumb');
+        echo $this->Html->css('text');
 
         echo $this->Html->script('jquery');
+        echo $this->Html->script('jquery.tipsy');
         echo $this->Html->script('kwicks');
         echo $this->Html->script('custom');
         echo $this->Html->script('jquery.corner');
@@ -84,9 +89,9 @@
                 <?php
                 echo $this->Session->flash();
                 echo $this->Session->flash('auth');
-                echo "<pre>";
-                //print_r($this);
-                echo "</pre>";
+//                echo "<pre>";
+//                //print_r($this);
+//                echo "</pre>";
                 ?>
 
                 <?php echo $content_for_layout; ?>

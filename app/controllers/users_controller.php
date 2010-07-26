@@ -10,6 +10,10 @@ class UsersController extends AppController {
         $this->Auth->allowedActions = array('login', 'logout', 'initDB', 'build_acl');
     }
 
+    function profile (id=null) {
+        $this->view($id);
+    }
+
     function index_manager() {
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());

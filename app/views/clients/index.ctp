@@ -22,8 +22,14 @@
             }
             ?>
         <tr<?php echo $class;?>>
+
             <td><?php echo $client['Client']['id']; ?>&nbsp;</td>
-            <td><?php echo $client['Client']['name']; ?>&nbsp;</td>
+
+            <td><?php
+                echo $this->Html->link($client['Client']['name'] , array('controller' => 'clients', 'action' => 'view', $client['Client']['id'])); ?>&nbsp;
+            </td>
+            
+
             <td>
                     <?php echo $this->Html->link($client['User']['id'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
             </td>

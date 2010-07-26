@@ -1,10 +1,9 @@
 <div class="cronograms index_">
     <h2><?php __('Cronograms');?></h2>
-    <?php echo $form->create('disableCronogram'); ?>
+    
     <table cellpadding="0" cellspacing="0" class="table_general_layout" >
         <thead
             <tr>
-                <th><?php echo 'Desativar';?></th>
                 <th><?php echo $this->Paginator->sort('client_id');?></th>
                 <th><?php echo $this->Paginator->sort('Nome', 'full_name');?></th>
                 <th><?php echo $this->Paginator->sort('start');?></th>
@@ -27,16 +26,6 @@
             ?>
         <tr<?php echo $class;?>>
 
-            <td>
-                <?php echo $form->input(
-                        $cronogram['Cronogram']['id'],
-                        array(
-                            'label' => false,
-                            'type' => 'checkbox',
-                            'id' => $cronogram['Cronogram']['id']
-                        )
-                );?>
-            </td>
 
             <td>
                     <?php echo $this->Html->link($cronogram['Client']['name'], array('controller' =>'clients', 'action' => 'view', $cronogram['Client']['id'])); ?>
@@ -49,15 +38,20 @@
             <td><?php echo $cronogram['Cronogram']['period']; ?>&nbsp;</td>
             <td><?php echo $cronogram['Cronogram']['active']; ?>&nbsp;</td>
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true),array('action' => 'view', $cronogram['Cronogram']['id'])); ?>
-                    <?php echo $this->Html->link(__('Edit', true),array('action' => 'edit', $cronogram['Cronogram']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true),array('action' => 'view', $cronogram['Cronogram']['id'])); ?>
+                    <?php echo $this->Html->link(__('Editar', true),array('action' => 'edit', $cronogram['Cronogram']['id'])); ?>
+                    <?php
+                        if($cronogram['Cronogram']['active'] == 1)
+                            echo $this->Html->link(__('Desabilitar', true), array('action' => 'disable', $cronogram['Cronogram']['id']), null, sprintf(__('Tem certeza que deseja desativar este cronograma?', true)));
+                    ?>
+
+                    
             </td>
         </tr>
         <?php endforeach;?>
 
         <tfoot>
             <tr>
-                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

@@ -1,23 +1,36 @@
 <?php
 class CronogramsController extends AppController {
+        public $helpers = array('Ajax');
+
 
 	var $name = 'Cronograms';
 
         function disable($id = null) {
 		if ($id) {
-                    $this->Session->setFlash(__('Desativa essa budega aí!', true));
-		}
-		else{
-                    if(!empty ($this->data)){
-                        $this->Session->setFlash(__('Desativa essas bugeda aí!', true));
-                    }
-                    else{
-                        $this->Session->setFlash(__('Selecione os cronogramas para desativá-los!', true));
-                    }
-                }
-                $this->redirect(array('action' => 'index'));
-	}
+                    $cronogram = $this->Cronogram->findById($id);
+                    
+                    $data = $cronogram;
+                    $data['Cronogram']['active'] = 0;
 
+                    if($cronogram != null){
+                        if($this->unScheduleVisits($cronogram)){
+                            if($this->Cronogram->save($data))
+                                $this->Session->setFlash(__('Cronograma desativado!', true));
+                            else
+                                $this->Session->setFlash(__('Erro em cascata ao desabilitar cronograma. Contate um administrador!', true));
+                        }
+                        else
+                            $this->Session->setFlash(__('Impossivel desmarcar as visitas.', true));
+                    }
+                    else
+                        $this->Session->setFlash(__('Cronograma n&atilde;o encontrado!', true));
+
+                    $this->redirect(array('action' => 'index'));
+		}
+                $this->Session->setFlash(__('Cronograma n&atilde;o v&aacute;lido!', true));
+                $this->redirect(array('action' => 'index'));
+		
+	}
 
         function index() {
             $this->loadModel('User');
@@ -303,6 +316,20 @@ class CronogramsController extends AppController {
             return array(false,'Nenhuma visita foi (re)marcada');
         }
 
+
+        function unScheduleVisits($cronogram = null) {
+            if($cronogram != null){
+                $today = date('Y-m-d');
+
+                $this->Cronogram->Visit->deleteAll(array(
+                    'cronogram_id'=>$cronogram['Cronogram']['id'],
+                    'date >=' =>  $today,
+                    'done' => '0'
+                ));
+                return true;
+            }
+            return false;
+        }
 
 	function delete($id = null) {
             $this->Session->setFlash(__('Cronogramas n&atilde;o podem ser excluidos! Se necess&aacute;rio, desative-o!', true));

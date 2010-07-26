@@ -44,12 +44,22 @@
             <td class="actions">
                     <?php echo $this->Html->link(__('Detalhes', true), array('action' => 'view', $user['User']['id'])); ?>
                     <?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $user['User']['id'])); ?>
-                    <?php echo $this->Html->link(__('BLABLABLA', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Tem certeza que deseja BLABLABLA o usuário \'%s\'?', true), $user['User']['username'])); ?>
+                    <?php 
+                        if($user['User']['active'] == 0)
+                            echo $this->Html->link(__('Desativar', true), array('action' => 'disable', $user['User']['id']), null, sprintf(__('Tem certeza que deseja desativar o usuário \'%s\'?', true), $user['User']['username']));
+                        else if ($user['User']['active'] == 1)
+                            echo $this->Html->link(__('Ativar', true), array('action' => 'enable', $user['User']['id']), null, sprintf(__('Tem certeza que deseja ativar o usuário \'%s\'?', true), $user['User']['username']));
+                        else{
+                            echo $this->Html->link(__('Permitir', true), array('action' => 'agree', $user['User']['id']), null, sprintf(__('Tem certeza que deseja aceitar o usuário \'%s\'?', true), $user['User']['username']));
+                            echo $this->Html->link(__('Recusar', true), array('action' => 'refuse', $user['User']['id']), null, sprintf(__('Tem certeza que deseja recusar o usuário \'%s\'?', true), $user['User']['username']));
+                        }
+                    ?>
             </td>
         </tr>
         <?php endforeach; ?>
         <tfoot>
             <tr>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

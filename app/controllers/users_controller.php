@@ -20,6 +20,40 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
 
+    function disable ($id){
+        $this->changeStatus($id, '1');
+    }
+
+    function enable ($id){
+        $this->changeStatus($id, '0');
+    }
+
+    function accept ($id){
+        $this->changeStatus($id, '0');
+    }
+
+    function refuse ($id){
+        if($id){
+            $user = $this->User->findById($id);
+            if($user != null){
+                if($this->User->delete($id))
+                    $this->Session->setFlash(__('Usu&aacute;rio recusado.', true));
+                else
+                    $this->Session->setFlash(__('Erro ao recusar usu&aacute;rio.', true));
+            }
+            else
+                $this->Session->setFlash(__('Usu&aacute;rio n&atilde;o encontrado no Banco de dados.', true));
+        }
+        else
+            $this->Session->setFlash(__('Erro ao recusar usu&aacute;rio.', true));
+
+        $userAuth = $this->Session->read('Auth.User');
+        if($userAuth['group_id'] == 1 )
+            $this->redirect(array('action' => 'index_admin'));
+        else
+            $this->redirect(array('action' => 'index_manager'));
+    }
+    
     function view($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid user', true));
@@ -116,6 +150,31 @@ class UsersController extends AppController {
 
     function setup() {
         echo "me here";
+    }
+
+    function changeStatus($id = null, $usrStatus){
+        if($id){
+            $user = $this->User->findById($id);
+            if($user != null){
+                //Demitido
+                $user['User']['active'] = $usrStatus;
+                if($this->User->save($user)){
+                    $this->Session->setFlash(__('Status de usu&aacute;rio alterado.', true));
+                }
+                else
+                    $this->Session->setFlash(__('Erro ao mudar status de usu&aacute;rio.', true));
+            }
+            else
+                $this->Session->setFlash(__('Usu&aacute;rio n&atilde;o encontrado no Banco de dados.', true));
+        }
+        else
+            $this->Session->setFlash(__('Status de usu&aacute;rio n&atilde;o alterado.', true));
+
+        $userAuth = $this->Session->read('Auth.User');
+        if($userAuth['group_id'] == 1 )
+            $this->redirect(array('action' => 'index_admin'));
+        else
+            $this->redirect(array('action' => 'index_manager'));
     }
 
 

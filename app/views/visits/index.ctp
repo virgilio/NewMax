@@ -30,7 +30,13 @@
         <tr<?php echo $class;?>>
 
             <td>
-                    <?php echo $this->Html->link($visit['Cronogram']['id'], array('controller' => 'cronograms', 'action' => 'view', $visit['Cronogram']['id'])); ?>
+                    <?php 
+                        if($visit['Cronogram']['id'] != null)
+                            echo $this->Html->link($visit['Cronogram']['id'], array('controller' => 'cronograms', 'action' => 'view', $visit['Cronogram']['id']));
+                        else
+                            echo 'Avulsa';
+                    ?>
+
             </td>
             <td>
                     <?php echo $this->Html->link($visit['Client']['name'], array('controller' => 'clients', 'action' => 'view', $visit['Client']['id'])); ?>
@@ -48,7 +54,7 @@
 		<td><?php echo $visit['Visit']['modified']; ?>&nbsp;</td>*/
                 ?>
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true), array('action' => 'view', $visit['Visit']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $visit['Visit']['id'])); ?>
                     <?php
                     //Data de hoje
                     $today = mktime (0, 0, 0, date("m")  , date("d"), date("Y"));
@@ -60,8 +66,8 @@
 
                         //mostra edit e delete paa a visita
                         ?>
-                        <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $visit['Visit']['id'])); ?>
-                        <?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id'])); ?>
+                        <?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $visit['Visit']['id'])); ?>
+                        <?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id'])); ?>
                         <?php
                     }
                     ?>

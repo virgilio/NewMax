@@ -50,7 +50,7 @@
 
 
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true), array('action' => 'view', $visit['Visit']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $visit['Visit']['id'])); ?>
                     <?php
                     //Data de hoje
                     $today = mktime (0, 0, 0, date("m")  , date("d"), date("Y"));
@@ -62,7 +62,7 @@
 
                         //mostra edit e delete paa a visita
                         ?>
-                        <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit_vendor', $visit['Visit']['id'])); ?>
+                        <?php echo $this->Html->link(__('Relatório', true), array('action' => 'edit_vendor', $visit['Visit']['id'])); ?>
                         <?php
                         /*echo $this->Html->link(__('Delete', true), array('action' => 'delete', $visit['Visit']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $visit['Visit']['id']));*/
                         ?>

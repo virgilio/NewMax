@@ -10,8 +10,16 @@ class CronogramsController extends AppController {
             );
             $this->set('cronograms', $this->paginate('Cronogram'));
         }
-
+ 
         function index_vendor() {
+                $user = $this->Session->read('Auth.User');
+                $id = $user['id'];
+                $this->paginate['Cronogram'] = array(
+                    'conditions' => array(
+                        'Cronogram.user_id ' => $id
+                    )
+                );
+
 		$this->Cronogram->recursive = 0;
 		$this->set('cronograms', $this->paginate());
 	}

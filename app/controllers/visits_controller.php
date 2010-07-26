@@ -17,6 +17,15 @@ class VisitsController extends AppController {
     }
 
     function index_vendor() {
+        $user = $this->Session->read('Auth.User');
+        $id = $user['id'];
+
+        $this->paginate['Visit'] = array(
+            'conditions' => array(
+                'Visit.user_id ' => $id
+            )
+        );
+
         $this->Visit->recursive = 0;
         $this->set('visits', $this->paginate());
     }

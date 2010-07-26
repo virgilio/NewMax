@@ -9,7 +9,16 @@ class ClientsController extends AppController {
 	}
 
         function index_vendor() {
+                $user = $this->Session->read('Auth.User');
+                $id = $user['id'];
 		$this->Client->recursive = 0;
+
+                $this->paginate['Client'] = array(
+                    'conditions' => array(
+                        'Client.user_id ' => $id
+                    )
+                );
+
 		$this->set('clients', $this->paginate());
 	}
 

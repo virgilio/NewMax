@@ -12,6 +12,8 @@
 
            <th class="actions"><?php __('Actions');?></th>
        </tr>
+
+       
        <?php
        $i = 0;
        foreach ($cronograms as $cronogram):

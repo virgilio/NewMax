@@ -60,7 +60,7 @@ class UsersController extends AppController {
     
     function view($id = null) {
         if (!$id) {
-            $this->Session->setFlash(__('Invalid user', true));
+            $this->Session->setFlash(__('Usuário inválido', true));
             $this->redirect(array('action' => 'index'));
         }
         $this->set('user', $this->User->read(null, $id));
@@ -70,10 +70,10 @@ class UsersController extends AppController {
         if (!empty($this->data)) {
             $this->User->create();
             if ($this->User->save($this->data)) {
-                $this->Session->setFlash(__('The user has been saved', true));
+                $this->Session->setFlash(__('Usuário Cadastrado com sucesso', true));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
+                $this->Session->setFlash(__('Erro ao cadastrar Usuário.', true));
             }
         }
         $groups = $this->User->Group->find('list');
@@ -82,15 +82,15 @@ class UsersController extends AppController {
 
     function edit($id = null) {
         if (!$id && empty($this->data)) {
-            $this->Session->setFlash(__('Invalid user', true));
+            $this->Session->setFlash(__('Usuário inválido', true));
             $this->redirect(array('action' => 'index'));
         }
         if (!empty($this->data)) {
             if ($this->User->save($this->data)) {
-                $this->Session->setFlash(__('The user has been saved: <pre>', true));
+                $this->Session->setFlash(__('Dados Atualizados: <pre>', true));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
+                $this->Session->setFlash(__('Dados não puderam ser atualizados.', true));
             }
         }
         if (empty($this->data)) {
@@ -102,15 +102,15 @@ class UsersController extends AppController {
 
     function edit_vendor($id = null) {
         if (!$id && empty($this->data)) {
-            $this->Session->setFlash(__('Invalid user', true));
+            $this->Session->setFlash(__('Usuário inválido', true));
             $this->redirect(array('action' => 'index'));
         }
         if (!empty($this->data)) {
             if ($this->User->save($this->data)) {
-                $this->Session->setFlash(__('The user has been saved: <pre>', true));
+                $this->Session->setFlash(__('Dados Atualizados: <pre>', true));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
+                $this->Session->setFlash(__('Dados não puderam ser atualizados.', true));
             }
         }
         if (empty($this->data)) {
@@ -122,11 +122,11 @@ class UsersController extends AppController {
 
     function delete($id = null) {
         if (!$id) {
-            $this->Session->setFlash(__('Invalid id for user', true));
+            $this->Session->setFlash(__('Usuário inválido', true));
             $this->redirect(array('action'=>'index'));
         }
         if ($this->User->delete($id)) {
-            $this->Session->setFlash(__('User deleted', true));
+            $this->Session->setFlash(__('Usuário excluido', true));
             $this->redirect(array('action'=>'index'));
         }
         $this->Session->setFlash(__('User was not deleted', true));
@@ -136,14 +136,14 @@ class UsersController extends AppController {
     function login() {
         //Auth Magic
         if ($this->Session->read('Auth.User')) {
-            $this->Session->setFlash('You are logged in!');
+            $this->Session->setFlash('Você está logado');
             $this->redirect('/', null, false);
         }
     }
 
     function logout() {
         //Leave empty for now.
-        $this->Session->setFlash('Good-Bye');
+        $this->Session->setFlash('Log off de Sistema Completo');
         $this->redirect($this->Auth->logout());
     }
 

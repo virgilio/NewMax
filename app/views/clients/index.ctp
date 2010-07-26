@@ -1,16 +1,18 @@
 <div class="clients index_">
-    <h2><?php __('Clients');?></h2>
+    <h4><?php __('Clientes');?></h4>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>
-                <th><?php echo $this->Paginator->sort('id');?></th>
-                <th><?php echo $this->Paginator->sort('name');?></th>
-                <th><?php echo $this->Paginator->sort('user_id');?></th>
+                <?php /*<th><?php echo $this->Paginator->sort('id');?></th> */ ?>
+                <th><?php echo $this->Paginator->sort('Cliente', 'name');?></th>
+                <th><?php echo $this->Paginator->sort('Usuário', 'User.first_name');?></th>
                 <?php
                 /*<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>*/
                 ?>
-                <th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
+
+                <th class="actions"><?php __('Ações');?></th>
+
             </tr>
         </thead>
         <?php
@@ -23,15 +25,15 @@
             ?>
         <tr<?php echo $class;?>>
 
-            <td><?php echo $client['Client']['id']; ?>&nbsp;</td>
+                <?php /*<td><?php echo $client['Client']['id']; ?>&nbsp;</td>*/?>
 
             <td><?php
-                echo $this->Html->link($client['Client']['name'] , array('controller' => 'clients', 'action' => 'view', $client['Client']['id'])); ?>&nbsp;
+                    echo $this->Html->link($client['Client']['name'] , array('controller' => 'clients', 'action' => 'view', $client['Client']['id'])); ?>&nbsp;
             </td>
-            
+
 
             <td>
-                    <?php echo $this->Html->link($client['User']['id'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
+                    <?php echo $this->Html->link($client['User']['full_name'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
             </td>
                 <?php
                 /*<td><?php echo $client['Client']['created']; ?>&nbsp;</td>
@@ -49,9 +51,8 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
-        </tfoot>		
+        </tfoot>
     </table>
     <?php
     /*<p>

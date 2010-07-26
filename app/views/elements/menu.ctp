@@ -26,8 +26,8 @@
                 echo $form->create('User', array('action' => 'login'));
                 echo $form->inputs(array(
                 'legend' => __('', true),
-                'username',
-                'password'
+                'username' => array('label' => 'Login'),
+                'password' => array('label' => 'Senha')
                 ));
                 echo $form->end('Login');
                 ?>

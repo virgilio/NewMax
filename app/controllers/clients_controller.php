@@ -51,7 +51,7 @@ class ClientsController extends AppController {
                 }
 
                 //Criando array que sera utilizado pelo helper Form
-                $usersInfoList = array('options' => $options);
+                $usersInfoList = array('options' => $options, 'label' => 'Vendedor');
 
                 //Setando variavel da view
                 $this->set('userInfoList', $usersInfoList);

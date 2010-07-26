@@ -10,7 +10,9 @@
                 <th><?php echo $this->Paginator->sort('first_name');?></th>
                 <th><?php echo $this->Paginator->sort('last_name');?></th>
                 <th><?php echo $this->Paginator->sort('phone');?></th>
-                <th><?php echo $this->Paginator->sort('active');?></th>
+                <?php
+                    /*<th><?php echo $this->Paginator->sort('active');?></th>*/
+                ?>
 
 
                 <?php
@@ -40,8 +42,6 @@
             <td><?php echo $user['User']['first_name']; ?>&nbsp;</td>
             <td><?php echo $user['User']['last_name']; ?>&nbsp;</td>
             <td><?php echo $user['User']['phone']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['active']; ?>&nbsp;</td>
-
 
                 <?php
                 /*echo $user['User']['id'];
@@ -71,7 +71,6 @@
         <?php endforeach; ?>
         <tfoot>
             <tr>
-                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

@@ -1,5 +1,5 @@
 <div class="clients index_vendor">
-    <h2><?php __('Clients');?></h2>
+    <h2><?php __('Clientes');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>
@@ -10,8 +10,9 @@
             <th><?php echo $this->Paginator->sort('modified');?></th>*/
                 ?>
 
-                <th><?php echo $this->Paginator->sort('name');?></th>
-                <th class="actions"><?php __('A&ccedil;&otilde;es');?></th>
+                <th><?php echo $this->Paginator->sort('Cliente', 'name');?></th>
+                <th class="actions"><?php __('Ações');?></th>
+
             </tr>
         </thead>
         <?php

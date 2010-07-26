@@ -100,13 +100,19 @@
 
             </div>
         </div>
-        <div id="footer">
-            <?php echo $this->Html->link(
+        <div id="footer" class="container_12">
+            <?php /*echo $this->Html->link(
             $this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
             'http://www.cakephp.org/',
             array('target' => '_blank', 'escape' => false)
-            );
+            );*/
             ?>
+            <ul>
+                <li>New Max |</li>
+                <li>Suporte |</li>
+                <li>MatchBoxIdeas</li>
+            </ul>
+
         </div>
         <!--</div>-->
         <?php echo $this->element('sql_dump'); ?>

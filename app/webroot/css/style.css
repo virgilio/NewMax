@@ -245,3 +245,7 @@ form .submit input[type="submit"]:hover {
     text-align:center;
     width:360px;
 }
+
+.paging{
+    text-align: center;
+}

@@ -71,11 +71,16 @@ class UsersController extends AppController {
             $this->User->create();
             if ($this->User->save($this->data)) {
                 $this->Session->setFlash(__('Usuário Cadastrado com sucesso', true));
-                $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('Erro ao cadastrar Usuário.', true));
             }
+            $userAuth = $this->Session->read('Auth.User');
+            if($userAuth['group_id'] == 1 )
+                $this->redirect(array('action' => 'index_admin'));
+            else
+                $this->redirect(array('action' => 'index_manager'));
         }
+
         $groups = $this->User->Group->find('list');
         $this->set(compact('groups'));
     }
@@ -83,15 +88,23 @@ class UsersController extends AppController {
     function edit($id = null) {
         if (!$id && empty($this->data)) {
             $this->Session->setFlash(__('Usuário inválido', true));
-            $this->redirect(array('action' => 'index'));
+            $userAuth = $this->Session->read('Auth.User');
+            if($userAuth['group_id'] == 1 )
+                $this->redirect(array('action' => 'index_admin'));
+            else
+                $this->redirect(array('action' => 'index_manager'));
         }
         if (!empty($this->data)) {
             if ($this->User->save($this->data)) {
                 $this->Session->setFlash(__('Dados Atualizados: <pre>', true));
-                $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('Dados não puderam ser atualizados.', true));
             }
+            $userAuth = $this->Session->read('Auth.User');
+            if($userAuth['group_id'] == 1 )
+                $this->redirect(array('action' => 'index_admin'));
+            else
+                $this->redirect(array('action' => 'index_manager'));
         }
         if (empty($this->data)) {
             $this->data = $this->User->read(null, $id);

@@ -12,10 +12,11 @@
                 <th><?php echo $this->Paginator->sort('email');?></th>
                 <th><?php echo $this->Paginator->sort('phone');?></th>
                 <?php 
-                    /*<th><?php echo $this->Paginator->sort('active');?></th>*/
-                ?>
+                    /*<th><?php echo $this->Paginator->sort('active');?></th>
+                
                 <th><?php echo $this->Paginator->sort('created');?></th>
-                <th><?php echo $this->Paginator->sort('modified');?></th>
+                <th><?php echo $this->Paginator->sort('modified');?></th>*/
+                ?>
 
                 <th class="actions"><?php __('Ações');?></th>
             </tr>
@@ -40,8 +41,10 @@
             </td>
             <td><?php echo $user['User']['email']; ?>&nbsp;</td>
             <td><?php echo $user['User']['phone']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['created']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['modified']; ?>&nbsp;</td>
+            <?php
+            /*<td><?php echo $user['User']['created']; ?>&nbsp;</td>
+            <td><?php echo $user['User']['modified']; ?>&nbsp;</td>*/
+            ?>
             <td class="actions">
                     <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $user['User']['id'])); ?>
                     <?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $user['User']['id'])); ?>
@@ -60,8 +63,6 @@
         <?php endforeach; ?>
         <tfoot>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

@@ -18,28 +18,3 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Salvar', true));?>
 </div>
-
-<?php
-/*
-<div class="actions">
-	<h3><?php __('Ações'); ?></h3>
-
-	<ul>
-            <?php
-                $user = $session->read('Auth.User');
-                if($user['group_id'] == '1'){
-            ?>
-                    <li><?php echo $this->Html->link(__('Listar Usuários', true), array('action' => 'index_admin'));?></li>
-
-            <?php
-                }else{
-            ?>
-                    <li><?php echo $this->Html->link(__('Listar Usuários', true), array('action' => 'index_manager'));?></li>
-            <?php
-                }
-            ?>
-	</ul>
-</div>
- */
-?>
- */

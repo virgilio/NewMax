@@ -208,7 +208,7 @@ class AppController extends Controller {
         $group =& $this->User->Group;
         //tables: clients, contacts, cronograms, groups, users, visits
 
-        
+
         //Admin permissions
         $group->id = 1;
         //Clients
@@ -221,6 +221,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Contacts/edit');
         $this->Acl->allow($group, 'controllers/Contacts/index');
         $this->Acl->allow($group, 'controllers/Contacts/view');
+        $this->Acl->allow($group, 'controllers/Contacts/delete');
         //Cronograms
         $this->Acl->allow($group, 'controllers/Cronograms/add');
         $this->Acl->allow($group, 'controllers/Cronograms/edit');
@@ -241,6 +242,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Users/enable');
         $this->Acl->allow($group, 'controllers/Users/accept');
         $this->Acl->allow($group, 'controllers/Users/refuse');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/add');
         $this->Acl->allow($group, 'controllers/Visits/edit');
@@ -260,6 +262,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Contacts/edit');
         $this->Acl->allow($group, 'controllers/Contacts/index');
         $this->Acl->allow($group, 'controllers/Contacts/view');
+        $this->Acl->allow($group, 'controllers/Contacts/delete');
         //Cronograms
         $this->Acl->allow($group, 'controllers/Cronograms/add');
         $this->Acl->allow($group, 'controllers/Cronograms/edit');
@@ -275,6 +278,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Users/enable');
         $this->Acl->allow($group, 'controllers/Users/accept');
         $this->Acl->allow($group, 'controllers/Users/refuse');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/add');
         $this->Acl->allow($group, 'controllers/Visits/edit');
@@ -296,10 +300,12 @@ class AppController extends Controller {
         //Users
         $this->Acl->allow($group, 'controllers/Users/edit_vendor');
         $this->Acl->allow($group, 'controllers/Users/view');
+        $this->Acl->allow($group, 'controllers/Users/profile');
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/edit_vendor');
         $this->Acl->allow($group, 'controllers/Visits/index_vendor');
         $this->Acl->allow($group, 'controllers/Visits/view');
+
 
     }
 

@@ -38,9 +38,9 @@
 		<td><?php echo $client['Client']['modified']; ?>&nbsp;</td>*/
                 ?>
             <td class="actions">
-                    <?php echo $this->Html->link(__('View', true), array('action' => 'view', $client['Client']['id'])); ?>
-                    <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $client['Client']['id'])); ?>
-                    <?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $client['Client']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $client['Client']['id'])); ?>
+                    <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $client['Client']['id'])); ?>
+                    <?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $client['Client']['id'])); ?>
+                    <?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $client['Client']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $client['Client']['id']));?>
             </td>
         </tr>
         <?php endforeach; ?>

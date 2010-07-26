@@ -4,7 +4,9 @@
         <thead>
             <tr>
 
-                <th><?php echo $this->Paginator->sort('Cronograma','cronogram_id');?></th>
+                <?php
+                /*<th><?php echo $this->Paginator->sort('Cronograma','cronogram_id');?></th>*/
+                ?>
                 <th><?php echo $this->Paginator->sort('Cliente','client_id');?></th>
                 <th><?php echo $this->Paginator->sort('Vendedor','user_id');?></th>
                 <th><?php echo $this->Paginator->sort('Data','date');?></th>
@@ -29,20 +31,19 @@
             ?>
         <tr<?php echo $class;?>>
 
-            <td>
-                    <?php 
+             <?php
+                    /*<td>
                         if($visit['Cronogram']['id'] != null)
                             echo $this->Html->link($visit['Cronogram']['id'], array('controller' => 'cronograms', 'action' => 'view', $visit['Cronogram']['id']));
                         else
                             echo 'Avulsa';
-                    ?>
-
-            </td>
+            </td>*/
+             ?>
             <td>
                     <?php echo $this->Html->link($visit['Client']['name'], array('controller' => 'clients', 'action' => 'view', $visit['Client']['id'])); ?>
             </td>
             <td>
-                    <?php echo $this->Html->link($visit['User']['id'], array('controller' => 'users', 'action' => 'view', $visit['User']['id'])); ?>
+                    <?php echo $this->Html->link($visit['User']['first_name'].' '.$visit['User']['last_name'], array('controller' => 'users', 'action' => 'view', $visit['User']['id'])); ?>
             </td>
             <td><?php echo $visit['Visit']['date']; ?>&nbsp;</td>
             <td><?php
@@ -86,7 +87,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                
             </tr>
         </tfoot>			
     </table>

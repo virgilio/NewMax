@@ -30,8 +30,10 @@ if($session->read('Auth.User') != null) {
         ?>
 <div id="toolbar">
     <ul class="container_12">
-        <li><?php echo $this->Html->link(__('Nova Visita', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('Excluir Visitas', true), array('controller' => 'visits', 'action' => 'delete')); ?></li>
+        <li><?php echo $this->Html->link(__('Nova Visita Avulsa', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+        <?php
+        /*<li><?php echo $this->Html->link(__('Excluir Visitas', true), array('controller' => 'visits', 'action' => 'delete')); ?></li>*/
+        ?>
     </ul>
 </div>
 

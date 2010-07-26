@@ -10,7 +10,6 @@
                 /*<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>*/
                 ?>
-
                 <th class="actions"><?php __('Ações');?></th>
 
             </tr>
@@ -25,7 +24,7 @@
             ?>
         <tr<?php echo $class;?>>
 
-                <?php /*<td><?php echo $client['Client']['id']; ?>&nbsp;</td>*/?>
+            <?php /*<td><?php echo $client['Client']['id']; ?>&nbsp;</td>*/?>
 
             <td><?php
                     echo $this->Html->link($client['Client']['name'] , array('controller' => 'clients', 'action' => 'view', $client['Client']['id'])); ?>&nbsp;

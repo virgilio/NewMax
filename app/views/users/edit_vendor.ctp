@@ -2,6 +2,7 @@
 
 <div class="users form">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <?php echo $this->Form->create('User');?>
 	<fieldset>
  		<legend><?php __('Editar Usuário'); ?></legend>
@@ -18,7 +19,7 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Salvar', true));?>
-=======
+
     <?php echo $this->Form->create('User');?>
     <fieldset>
         <legend><?php __('Editar Usuário ' . $this->Form->value('User.first_name') . ' ' . $this->Form->value('User.last_name')); ?></legend>
@@ -34,7 +35,6 @@
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Salvar', true));?>
->>>>>>> Stashed changes
 </div>
 <?php
 /*

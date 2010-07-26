@@ -3,7 +3,7 @@ class CronogramsController extends AppController {
 
 	var $name = 'Cronograms';
 
-        function disable($id) {
+        function disable($id = null) {
 		if ($id) {
                     $this->Session->setFlash(__('Desativa essa budega aí!', true));
 		}
@@ -22,7 +22,7 @@ class CronogramsController extends AppController {
         function index() {
             $this->Cronogram->recursive = 0;
             $this->paginate['Cronogram'] = array(
-                'order' => 'User.first_name'.' '.'User.last_name'
+                'order' => 'User.first_name'
             );
             $this->set('cronograms', $this->paginate('Cronogram'));
         }

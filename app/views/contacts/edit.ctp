@@ -4,7 +4,7 @@
  		<legend><?php __('Editar Contato'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('client_id', array('label'=>'Cliente'));
+		//echo $this->Form->input('client_id', array('label'=>'Cliente'));
 		echo $this->Form->input('funcao', array('label'=>'Fun&ccedil;&atilde;o'));
 		echo $this->Form->input('name', array('label'=>'Nome'));
 		echo $this->Form->input('phone', array('label'=>'Telefone'));

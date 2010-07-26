@@ -41,7 +41,8 @@
             <td class="actions">
                     <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $client['Client']['id'])); ?>
                     <?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $client['Client']['id'])); ?>
-                    <?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $client['Client']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $client['Client']['id']));?>
+                    <?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $client['Client']['id']), null, sprintf(__('Tem certeza que deseja excluir o cliente \'%s\'?', true), $client['Client']['name']));?>
+                    <?php echo $this->Html->link(__('Contatos', true), array('controller' => 'contacts', 'action' => 'index/' . $client['Client']['id'])); ?>
             </td>
         </tr>
         <?php endforeach; ?>

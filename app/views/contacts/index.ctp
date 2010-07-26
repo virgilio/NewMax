@@ -44,7 +44,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $contact['Contact']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $contact['Contact']['id'])); ?>
-			<?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $contact['Contact']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $contact['Contact']['id'])); ?>
+			<?php echo $this->Html->link(__('Excluir', true), array('action' => 'delete', $contact['Contact']['id']), null, sprintf(__('Tem certeza que deseja excluir o contato # %s?', true), $contact['Contact']['name'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -61,12 +61,14 @@
             </tr>
         </tfoot>
 	</table>
-	<p>
+        <?php
+	/*<p>
 	<?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
 	));
-	?>	</p>
+	?>	</p>*/
+        ?>
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>

@@ -60,10 +60,10 @@ class ClientsController extends AppController {
 			$this->Client->create();
 			if ($this->Client->save($this->data)) {
 				$this->Session->setFlash(__('The client has been saved', true));
-				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The client could not be saved. Please, try again.', true));
 			}
+                        $this->redirect(array('action' => 'index'));
 		}
 		$users = $this->Client->User->find('list');
 		$this->set(compact('users'));
@@ -97,16 +97,16 @@ class ClientsController extends AppController {
 
 
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid client', true));
+			$this->Session->setFlash(__('Cliente Inexistente', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Client->save($this->data)) {
-				$this->Session->setFlash(__('The client has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Informa&ccedil;&otilde;es do cliente salvas.', true));
 			} else {
-				$this->Session->setFlash(__('The client could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('O cliente n&atilde;o p&ocirc;de ser salvo. Tente novamente.', true));
 			}
+                        $this->redirect(array('action' => 'index'));
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Client->read(null, $id);
@@ -117,14 +117,14 @@ class ClientsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for client', true));
+			$this->Session->setFlash(__('Cliente inexistente', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Client->delete($id)) {
-			$this->Session->setFlash(__('Client deleted', true));
+			$this->Session->setFlash(__('Cliente Excluido', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Client was not deleted', true));
+		$this->Session->setFlash(__('Cliente n&atilde;o excluido', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

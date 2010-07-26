@@ -28,7 +28,7 @@
         <?php
         echo $this->Html->meta('icon');
 
-        echo $this->Html->css('cake.generic');
+        //echo $this->Html->css('cake.generic');
 //960.css  principal.css  reset.css  style.css
 //custom.js  jquery-1.2.6.min.js  jquery.corner.js  kwicks.js
 
@@ -75,19 +75,23 @@
             ?>
 
         </div>
+        <?php
+        echo $this->element('toolbar');
+        ?>
+
         <div id="content">
-            <?php
-            echo $this->Session->flash();
+            <div class="container_12">
+                <?php
+                echo $this->Session->flash();
+                echo $this->Session->flash('auth');
+                echo "<pre>";
+                //print_r($this);
+                echo "</pre>";
+                ?>
 
-//            echo "<pre>";
-//            print_r($session->read('Auth.User'));
-//            echo "</pre>";
+                <?php echo $content_for_layout; ?>
 
-            echo $this->Session->flash('auth');
-            ?>
-
-            <?php echo $content_for_layout; ?>
-
+            </div>
         </div>
         <div id="footer">
             <?php echo $this->Html->link(

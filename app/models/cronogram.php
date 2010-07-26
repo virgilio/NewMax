@@ -1,6 +1,7 @@
 <?php
 class Cronogram extends AppModel {
 	var $name = 'Cronogram';
+        
 	var $validate = array(
 		'client_id' => array(
 			'numeric' => array(

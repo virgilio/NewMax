@@ -1,6 +1,12 @@
 <?php
 class User extends AppModel {
     var $name = 'User';
+
+
+    var $virtualFields = array(
+            'full_name' => 'CONCAT(User.first_name, " ", User.last_name)'
+    );
+
     var $validate = array(
             'username' => array(
                             'notempty' => array(
@@ -64,6 +70,7 @@ class User extends AppModel {
             ),
     );
     //The Associations below have been created with all possible keys, those that are not needed can be removed
+
 
     var $belongsTo = array(
             'Group' => array(

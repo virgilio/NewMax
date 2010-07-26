@@ -256,7 +256,6 @@ fieldset fieldset div {
 }
 form div {
 	clear: both;
-	margin-bottom: 1em;
 	padding: .5em;
 	vertical-align: text-top;
 }
@@ -274,7 +273,6 @@ form .required label:after {
 form div.submit {
 	border: 0;
 	clear: both;
-	margin-top: 10px;
 }
 label {
 	display: block;
@@ -405,7 +403,7 @@ input[type=submit],
 div.actions ul li a,
 td.actions a {
 	font-weight:normal;
-	padding: 4px 8px;
+	padding: 2px 4px;
 	background:#e6e49f;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
 	background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);

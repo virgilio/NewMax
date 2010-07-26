@@ -18,9 +18,65 @@
  * => Visitas
  * 		add, delete
  *
- */
+*/
 
+if($session->read('Auth.User') != null) {
+    $userInfo = $session->read('Auth.User');
+    //echo "<pre>" . print_r($userInfo) . "</pre>";
+    ?>
 
+    <?php
+    if($userInfo['group_id'] <= 2 && $this->name == 'Visits') { // admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Nova Visita', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Excluir Visitas', true), array('controller' => 'visits', 'action' => 'delete')); ?></li>
+    </ul>
+</div>
 
-
+        <?php
+    }
+    else if($userInfo['group_id'] <= 1 && $this->name == 'Cronograms') { // admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+    </ul>
+</div>
+        <?php
+    }
+    else if($userInfo['group_id'] <= 1 && $this->name == 'Users' && $this->action != 'view') { // admin
+        //if admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'users', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'users', 'action' => 'update')); ?></li>
+        <li><?php echo $this->Html->link(__('Demitir', true), array('controller' => 'users', 'action' => 'update')); ?></li>
+    </ul>
+</div>
+        <?php
+    }
+    else if($userInfo['group_id'] <= 1 && $this->name == 'Clients') { // admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'clients', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'clients', 'action' => 'update')); ?></li>
+    </ul>
+</div>
+        <?php
+    }
+    else if($this->name == 'Users' && $this->action == 'view') { // admin
+    ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Editar', true), array('controller' => 'clients', 'action' => 'edit')); ?></li>
+    </ul>
+</div>
+    <?php
+    }
+}
 ?>

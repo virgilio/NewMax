@@ -49,12 +49,22 @@ if($session->read('Auth.User') != null) {
 </div>
         <?php
     }
-    else if($userInfo['group_id'] <= 1 && $this->name == 'Users' && $this->action != 'view') { // admin
+    else if($userInfo['group_id'] <= 1 && $this->name == 'Users' && $this->action != 'view' && $this->action != 'profile') { // admin
         //if admin
         ?>
 <div id="toolbar">
     <ul class="container_12">
         <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'users', 'action' => 'add')); ?></li>
+    </ul>
+</div>
+        <?php
+    }
+    else if($this->name == 'Users' && $this->action == 'profile') { // admin
+        //if admin
+        ?>
+<div id="toolbar">
+    <ul class="container_12">
+        <li><?php echo $this->Html->link(__('Editar', true), array('controller' => 'users', 'action' => (($userInfo['group_id'] <= 2 ? 'edit/' : 'edit_vendor/') . $user['User']['id']))); ?></li>
     </ul>
 </div>
         <?php

@@ -16,7 +16,14 @@ h2 {
     padding: 20px 0 0;
     text-align: center;
 }
+a, a:visited, a:active {
+    color:#0D213C;
+    text-decoration:none;
+}
 
+a:hover {
+    color:#466388;
+}
 p {
     overflow: hidden;
     padding: 10px 0;
@@ -38,7 +45,7 @@ p {
 }
 
 #form_login{
-    background-color:#fff;
+    background-color:#E0E0E0;
     border: 2px solid #4169E1;
     display:none;
     height:150px;
@@ -201,7 +208,7 @@ p {
     margin-left: 500px; }
 #calendar li.saturday {
     margin-left: 600px; }
-.clear { 
+.clear {
     clear: both; }
 
 #footer{

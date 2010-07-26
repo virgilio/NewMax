@@ -235,3 +235,13 @@ form .submit input[type="submit"]:hover {
     background:-moz-linear-gradient(center top , #0D213C, #466388) repeat scroll 0 0 #466388;
     border-color:#000099;
 }
+
+.message {
+    background:none repeat scroll 0 0 #EEEEEE;
+    border:2px dashed orange;
+    font-weight:bold;
+    margin:0 auto;
+    padding:10px;
+    text-align:center;
+    width:360px;
+}

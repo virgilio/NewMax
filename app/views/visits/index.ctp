@@ -45,7 +45,12 @@
                     <?php echo $this->Html->link($visit['User']['id'], array('controller' => 'users', 'action' => 'view', $visit['User']['id'])); ?>
             </td>
             <td><?php echo $visit['Visit']['date']; ?>&nbsp;</td>
-            <td><?php echo $visit['Visit']['done']; ?>&nbsp;</td>
+            <td><?php
+                if($visit['Visit']['done'] == 1)
+                    echo 'Sim';
+                else
+                    echo 'N&atilde;o';
+            ?>&nbsp;</td>
 
                 <?php
                 /*<td><?php echo $visit['Visit']['id']; ?>&nbsp;</td>

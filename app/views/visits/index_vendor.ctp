@@ -46,7 +46,12 @@
             </td>
 
             <td><?php echo $visit['Visit']['date']; ?>&nbsp;</td>
-            <td><?php echo $visit['Visit']['done']; ?>&nbsp;</td>
+            <td><?php
+                if($visit['Visit']['done'] == 1)
+                    echo 'Sim';
+                else
+                    echo 'N&atilde;o';
+            ?>&nbsp;</td>
 
 
             <td class="actions">

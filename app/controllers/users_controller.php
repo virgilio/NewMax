@@ -10,7 +10,7 @@ class UsersController extends AppController {
         $this->Auth->allowedActions = array('login', 'logout', 'initDB', 'build_acl');
     }
 
-    function profile (id=null) {
+    function profile ($id=null) {
         $this->view($id);
     }
 

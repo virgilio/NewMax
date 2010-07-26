@@ -1,5 +1,5 @@
 <div class="cronograms view_">
-<h2><?php  __('Cronogram');?></h2>
+<h2><?php  __('Cronograma');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<?php
                 /*<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
@@ -8,34 +8,34 @@
 			&nbsp;
 		</dd>*/
                 ?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Client'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cliente'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($cronogram['Client']['name'], array('controller' => 'clients', 'action' => 'view', $cronogram['Client']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vendedor responsável'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($cronogram['User']['id'], array('controller' => 'users', 'action' => 'view', $cronogram['User']['id'])); ?>
+			<?php echo $this->Html->link($cronogram['User']['full_name'], array('controller' => 'users', 'action' => 'view', $cronogram['User']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de Início'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $cronogram['Cronogram']['start']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Frequency'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Frequêcia de visitação'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $cronogram['Cronogram']['frequency']; ?>
+			<?php echo $cronogram['Cronogram']['frequency'] . " dias"; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Period'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de Término'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $cronogram['Cronogram']['period']; ?>
+			<?php echo $cronogram['Cronogram']['period'] . " dias a partir da data inicial"; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Active'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ativo'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $cronogram['Cronogram']['active']; ?>
+			<?php echo $cronogram['Cronogram']['active'] == '0' ? 'Não' : 'Sim'; ?>
 			&nbsp;
 		</dd>
                 <?php

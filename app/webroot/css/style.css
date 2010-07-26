@@ -92,6 +92,30 @@ body {
 #kwick9.active, #kwick9:hover {
     background-position:-1120px bottom;
 }
+#form_login form fieldset label {
+    width:50px;
+}
+#form_login form fieldset {
+    background:none repeat scroll 0 0 transparent;
+    padding-left:26px;
+    padding-top:6px;
+    width:150px;
+}
+#form_login .submit {
+    margin-left:47px;
+    margin-top:-34px;
+    width:50px;
+}
+#form_login input[type="submit"] {
+    font-size:1em;
+    padding:2px;
+    width:54px;
+}
+#form_login form fieldset input {
+    margin:0;
+    padding:2px;
+    width:100px;
+}
 form {
     clear:both;
     margin-right:20px;
@@ -169,14 +193,12 @@ input, textarea {
 }
 select {
     clear:both;
-    font-size:120%;
     vertical-align:text-bottom;
 }
 select[multiple="multiple"] {
     width:100%;
 }
 option {
-    font-size:120%;
     padding:0 3px;
 }
 input[type="checkbox"] {

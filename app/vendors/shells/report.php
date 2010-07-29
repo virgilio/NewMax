@@ -7,7 +7,7 @@
  *
  * (1) Para cada cliente ativo {{
  *   (Tem visitas em aberto) ?
- *     (Dia da visita - dia da  ultima visita > periodicidade) ?
+ *     (data de hoje - dia da  ultima visita > periodicidade) ?
  *       Cliente X, VISITA EM ATRASO (marca no relatorio)
  *     : Continua ==> (1)
  *   : (A visita foi realizada em atraso) ?
@@ -46,46 +46,68 @@ class ReportShell extends Shell{
     
     //$this->out(print_r($contacts));
 
-    foreach($contacts as $contact){ 
-      $visits = $this->Visit->query('SELECT id, date, status, report FROM visits WHERE contact_id = ' . $contact['Contact']['id'] . ' AND status = 0');
-      print_r($visits);      
-      if(sizeof($visits) == 0 ){ // Sem visitas em aberto
-	$lastVisit = $this->Visit->find('first', array('fields' => array('id', 'real_date', 'status'), 
+    foreach($contacts as $contact){
+      echo $contact['Contact']['id'] . "\n";
+      $openVisit = $this->Visit->find('first', array('fields' => array('id', 'date', 'status', 'date'),
+						     'order' => array('Visit.date DESC'),
+						     'recursive' => 0,
+						     'conditions' => 'contact_id=' . $contact['Contact']['id'] . " AND status=0"));
+      
+      if(empty($openVisit)){ // Sem visitas em aberto
+	$lastVisit = $this->Visit->find('first', array('fields' => array('id', 'real_date', 'status', 'date'), 
 						       'order' => array('Visit.date DESC'), 
 						       'recursive' => 0, 
 						       'conditions' => 'contact_id=' . $contact['Contact']['id']));
 	
-	echo "Last Visit: " . print_r($lastVisit);
-	if(sizeof($lastVisit) > 0) {
-	  echo 
-	    $contact['Contact']['frequency'] . ": " . 
-	    $lastVisit['Visit']['real_date'] . " => ". 
-	    date('d-m-Y', $contact['Contact']['frequency'] * $day + strtotime($lastVisit['Visit']['real_date'])) . 
-	    "\n";
+	if(!empty($lastVisit)) { //Existe pelo menos uma última visita
+	  $this->Visit->create();	  
+	  $data = array(
+			'Visit' => array(
+					 'contact_id' => $contact['Contact']['id'],
+					 'date' => date('Y-m-d', strtotime($lastVisit['Visit']['real_date']) + $contact['Contact']['frequency'] * $day),
+					 'status' => 0
+					 ));
 	}
+	else{ // Não existe visita, marca a partir de hoje
+	  $this->Visit->create();	  
+	  $data = array(
+                        'Visit' => array(
+                                         'contact_id' => $contact['Contact']['id'],
+                                         'date' => date('Y-m-d', strtotime('today') + $contact['Contact']['frequency'] * $day),
+                                         'status' => 0
+                                         ));
+	}
+	print_r($this->Visit->save($data));
       }
-      else { //Visitas em aberto
+      else { 
+	//Há uma visita em aberto
+	$delta = strtotime('today') - strtotime($openVisit['Visit']['date']);
+	$frequency = $contact['Contact']['frequency'] * $day;
+	echo $delta . " => " . $openVisit['Visit']['date'] . " <> " . $contact['Contact']['frequency']*$day . "\n";
+	if($delta > $frequency){ //Visita em atraso
+	  $this->Visit->id = $openVisit['Visit']['id'];
+	  $this->Visit->saveField('status', 1);
+	  
+	  //schedule new one
+	  $this->Visit->create();
+	  $data = array(
+                        'Visit' => array(
+                                         'contact_id' => $contact['Contact']['id'],
+                                         'date' => date('Y-m-d', strtotime($lastVisit['Visit']['date']) + $contact['Contact']['frequency'] * $day),
+                                         'status' => 0
+                                         ));
+	  $this->Visit->save($data);
+	}
+	else {
+	  //continue
+	}
+	
       }
     }
-
-
-
-    $i = 0;
-
-    //Print out each order's information
-    //    foreach($visits as $visit) {
-      /*$this->out('Data da visita:' .    $visit['Visit']['created'] . "\n");
-      $this->out('Cliente: ' .    $visit['Client']['name'] . "\n");
-      $this->out('----------------------------------------' .    "\n");
-      */
-    $i++;
-      //}
-
+    
     //Print out total for the selected orders
     $this->out($reportMail);
-    $this->out("Total de visitas: " . $i . "\n"); 
-
   }
-
+  
 }
 ?>

@@ -1,30 +1,27 @@
-<div class="visits edit_">
+<div class="visits form">
 <?php echo $this->Form->create('Visit');?>
 	<fieldset>
- 		<legend><?php __('Editar Visita'); ?></legend>
+ 		<legend><?php __('Edit Visit'); ?></legend>
 	<?php
-		//echo $this->Form->input('id');
-		//echo $this->Form->input('cronogram_id');
-		echo $this->Form->input('client_id', array('label'=>'Cliente'));
-		//echo $this->Form->input('user_id');
-		echo $this->Form->input('date', array('label'=>'Data','dateFormat' => 'DMY',
-                            'monthNames' => array(
-                                '01' => 'Janeiro',
-                                '02' => 'Fevereiro',
-                                '03' => 'Março',
-                                '04' => 'Abril',
-                                '05' => 'Maio',
-                                '06' => 'Junho',
-                                '07' => 'Julho',
-                                '08' => 'Agosto',
-                                '09' => 'Setembro',
-                                '10' => 'Outubro',
-                                '11' => 'Novembro',
-                                '12' => 'Dezembro'
-                            )));
-		//echo $this->Form->input('done');
-		//echo $this->Form->input('report');
+		echo $this->Form->input('id');
+		echo $this->Form->input('contact_id');
+		echo $this->Form->input('date');
+                echo $this->Form->input('real_date');
+		echo $this->Form->input('status');
+		echo $this->Form->input('report');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Salvar', true));?>
+<?php echo $this->Form->end(__('Submit', true));?>
 </div>
+
+<?php /*
+<div class="actions">
+	<h3><?php __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Visit.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Visit.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('List Visits', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Contact', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
+	</ul>
+</div> */ ?>

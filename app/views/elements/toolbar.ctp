@@ -13,8 +13,6 @@
  * 		add, desativar
  * => NO-MENU :: Contatos:
  * 	add contato, excluir contatos
- * => Cronogramas
- * 		add, desativar
  * => Visitas
  * 		add, delete
  *
@@ -37,18 +35,6 @@ if($session->read('Auth.User') != null) {
     </ul>
 </div>
 
-        <?php
-    }
-    else if($userInfo['group_id'] <= 1 && $this->name == 'Cronograms') { // admin
-        ?>
-<div id="toolbar">
-    <ul class="container_12">
-        <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'cronograms', 'action' => 'add')); ?></li>
-                <?php
-                /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'cronograms', 'action' => 'disable'),null, 'Tem certeza que deseja desativar todos os cronogramas selecionados?'); ?></li>*/
-                ?>
-    </ul>
-</div>
         <?php
     }
     else if($userInfo['group_id'] <= 1 && $this->name == 'Users' && $this->action != 'view' && $this->action != 'profile') { // admin

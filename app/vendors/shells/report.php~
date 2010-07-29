@@ -1,0 +1,28 @@
+<?php
+class ReportShell extends Shell{
+  var $uses = array('Visit');
+
+  function main(){
+    echo "hello cake shel!!\n";
+    
+    //Get orders shipped in the last    month
+    $month_ago = date('Y-m-d H:i:s',    strtotime('-1 month'));
+    $visits =    $this->Visit->find("all", array('conditions'=>"Visit.created >= '$month_ago'"));
+    $i = 0;
+
+    //Print out each order's information
+    foreach($visits as $visit) {
+      $this->out('Data da visita:' .    $visit['Visit']['created'] . "\n");
+      $this->out('Cliente: $' .    $visit['Client']['name'] . "\n");
+      $this->out('----------------------------------------' .    "\n");
+      
+      $i++;
+    }
+
+    //Print out total for the selected orders
+    $this->out("Total de visitas: $" . $i . "\n"); 
+
+  }
+
+}
+?>

@@ -1,0 +1,24 @@
+(1) Para cada cliente ativo {{
+  (Tem visitas em aberto) ?
+    (Dia da visita - dia da  ultima visita > periodicidade) ?
+      Cliente X, VISITA EM ATRASO (marca no relatorio)
+    : Continua ==> (1)
+  : (A visita foi realizada em atraso) ? 
+      Cliente X, VISITA REALIZADA EM ATRASO (marca no relatorio)
+    : Continua
+    Marca uma nova visita (De acordo com a data da visita anterior (data real ou data da visita??) + periodicidade)
+    Notifica usuário (vendedor)  
+ }}
+
+
+ALTER TABLE  `visits`   DROP   `cronogram_id`,  DROP `client_id`, DROP   `user_id`;
+
+ALTER TABLE  `visits`   CHANGE `done`  `status`   SMALLINT( 4 ) NULL DEFAULT  '0'
+ALTER TABLE  `visits`   ADD    `contact_id`     INT NULL AFTER  `user_id`
+ALTER TABLE  `visits`   ADD    `real_date`     DATE NULL AFTER  `date`
+
+
+
+ALTER TABLE  `contacts` ADD    `user_id`        INT NOT NULL AFTER  `client_id`
+ALTER TABLE  `contacts` ADD  `frequency` INT NOT NULL AFTER  `user_id`
+ALTER TABLE  `contacts` ADD  `active` BOOLEAN NOT NULL AFTER  `email`

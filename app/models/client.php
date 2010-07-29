@@ -38,8 +38,8 @@ class Client extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Cronogram' => array(
+		)
+		/*'Cronogram' => array(
 			'className' => 'Cronogram',
 			'foreignKey' => 'client_id',
 			'dependent' => false,
@@ -51,8 +51,8 @@ class Client extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Visit' => array(
+		),*/
+		/*'Visit' => array(
 			'className' => 'Visit',
 			'foreignKey' => 'client_id',
 			'dependent' => false,
@@ -64,7 +64,7 @@ class Client extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		)*/
 	);
 
 }

@@ -1,62 +1,36 @@
 <?php
 class Visit extends AppModel {
-	var $name = 'Visit';
-	var $validate = array(
-		'client_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'user_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'date' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
+    var $name = 'Visit';
+    var $validate = array(
+            'date' => array(
+                            'date' => array(
+                                            'rule' => array('date'),
+                            //'message' => 'Your custom message here',
+                            //'allowEmpty' => false,
+                            //'required' => false,
+                            //'last' => false, // Stop validation after this rule
+                            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                            ),
+                            'real_date' => array(
+                                            'rule' => array('date'),
+                            //'message' => 'Your custom message here',
+                            //'allowEmpty' => false,
+                            //'required' => false,
+                            //'last' => false, // Stop validation after this rule
+                            //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                            ),
+            ),
+    );
+    //The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
-		'Cronogram' => array(
-			'className' => 'Cronogram',
-			'foreignKey' => 'cronogram_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Client' => array(
-			'className' => 'Client',
-			'foreignKey' => 'client_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
+    var $belongsTo = array(
+            'Contact' => array(
+                            'className' => 'Contact',
+                            'foreignKey' => 'contact_id',
+                            'conditions' => '',
+                            'fields' => '',
+                            'order' => ''
+            )
+    );
 }
 ?>

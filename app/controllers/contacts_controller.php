@@ -10,7 +10,7 @@ class ContactsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Contato inexistente', true));
+			$this->Session->setFlash(__('Invalid contact', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('contact', $this->Contact->read(null, $id));
@@ -20,34 +20,36 @@ class ContactsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Contact->create();
 			if ($this->Contact->save($this->data)) {
-				$this->Session->setFlash(__('Contato salvo.', true));
+				$this->Session->setFlash(__('The contact has been saved', true));
+				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('O contato n&atilde;o p&ocirc;de ser salvo. Tente novamente.', true));
-                                $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The contact could not be saved. Please, try again.', true));
 			}
 		}
 		$clients = $this->Contact->Client->find('list');
-		$this->set(compact('clients'));
+		$users = $this->Contact->User->find('list');
+		$this->set(compact('clients', 'users'));
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Contato inexistente', true));
+			$this->Session->setFlash(__('Invalid contact', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Contact->save($this->data)) {
-				$this->Session->setFlash(__('Contato salvo.', true));
+				$this->Session->setFlash(__('The contact has been saved', true));
+				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('O contato n&atilde;o p&ocirc;de ser salvo. Tente novamente.', true));
+				$this->Session->setFlash(__('The contact could not be saved. Please, try again.', true));
 			}
-                        $this->redirect(array('action' => 'index'));
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Contact->read(null, $id);
 		}
 		$clients = $this->Contact->Client->find('list');
-		$this->set(compact('clients'));
+		$users = $this->Contact->User->find('list');
+		$this->set(compact('clients', 'users'));
 	}
 
 	function delete($id = null) {

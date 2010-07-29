@@ -96,6 +96,19 @@ class User extends AppModel {
                             'finderQuery' => '',
                             'counterQuery' => ''
             ),
+            'Contact' => array(
+                            'className' => 'Contact',
+                            'foreignKey' => 'client_id',
+                            'dependent' => false,
+                            'conditions' => '',
+                            'fields' => '',
+                            'order' => '',
+                            'limit' => '',
+                            'offset' => '',
+                            'exclusive' => '',
+                            'finderQuery' => '',
+                            'counterQuery' => ''
+            )/*,
             'Cronogram' => array(
                             'className' => 'Cronogram',
                             'foreignKey' => 'user_id',
@@ -121,7 +134,7 @@ class User extends AppModel {
                             'exclusive' => '',
                             'finderQuery' => '',
                             'counterQuery' => ''
-            )
+            )*/
     );
 
     var $actsAs = array('Acl' => array('type' => 'requester'));

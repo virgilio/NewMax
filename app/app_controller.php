@@ -222,12 +222,6 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Contacts/index');
         $this->Acl->allow($group, 'controllers/Contacts/view');
         $this->Acl->allow($group, 'controllers/Contacts/delete');
-        //Cronograms
-        $this->Acl->allow($group, 'controllers/Cronograms/add');
-        $this->Acl->allow($group, 'controllers/Cronograms/edit');
-        $this->Acl->allow($group, 'controllers/Cronograms/index');
-        $this->Acl->allow($group, 'controllers/Cronograms/view');
-        $this->Acl->allow($group, 'controllers/Cronograms/disable');
         //Groups
         $this->Acl->allow($group, 'controllers/Groups/add');
         $this->Acl->allow($group, 'controllers/Groups/edit');
@@ -264,12 +258,6 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Contacts/index');
         $this->Acl->allow($group, 'controllers/Contacts/view');
         $this->Acl->allow($group, 'controllers/Contacts/delete');
-        //Cronograms
-        $this->Acl->allow($group, 'controllers/Cronograms/add');
-        $this->Acl->allow($group, 'controllers/Cronograms/edit');
-        $this->Acl->allow($group, 'controllers/Cronograms/index');
-        $this->Acl->allow($group, 'controllers/Cronograms/view');
-        $this->Acl->allow($group, 'controllers/Cronograms/disable');
         //Users
         $this->Acl->allow($group, 'controllers/Users/add');
         $this->Acl->allow($group, 'controllers/Users/edit');
@@ -296,9 +284,6 @@ class AppController extends Controller {
         //Contacts
         $this->Acl->allow($group, 'controllers/Contacts/index');
         $this->Acl->allow($group, 'controllers/Contacts/view');
-        //Cronograms
-        $this->Acl->allow($group, 'controllers/Cronograms/index_vendor');
-        $this->Acl->allow($group, 'controllers/Cronograms/view');
         //Users
         $this->Acl->allow($group, 'controllers/Users/edit_vendor');
         $this->Acl->allow($group, 'controllers/Users/view');
@@ -306,9 +291,8 @@ class AppController extends Controller {
         //Visits
         $this->Acl->allow($group, 'controllers/Visits/edit_vendor');
         $this->Acl->allow($group, 'controllers/Visits/index_vendor');
-        $this->Acl->allow($group, 'controllers/Visits/view');
         $this->Acl->allow($group, 'controllers/Visits/calendar_vendor');
-
+        $this->Acl->allow($group, 'controllers/Visits/view');
 
     }
 

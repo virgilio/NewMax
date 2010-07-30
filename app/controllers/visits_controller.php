@@ -105,8 +105,34 @@ class VisitsController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
-    function calendar() {
+    function calendar($year = null, $month = null) {
+        if($year == null || $month == null){
+            $year = date('Y');
+            $month = date('m');
+        }
 
+        $date = $year."-".$month."-01";
+        $nextDate = date("Y-m-d", mktime(0, 0, 0, $month + 1, 1, $year));
+        $monthVisits = $this->Visit->find('all',  array(
+                'conditions' => array(
+                    'Visit.date >=' => $date,
+                    'Visit.date <' => $nextDate
+                ),
+                'order' => array(
+                    'Visit.date',
+                    'Contact.name'
+                )
+        ));
+
+//        echo "date = ".$date;
+//        echo "nextDate = ".$nextDate;
+        echo "<pre>";
+        echo print_r($monthVisits);
+        echo "</pre>";
+
+        $this->set('monthVisits', $monthVisits);
+        $this->set('year', $year);
+        $this->set('month', $month);
     }
 
     function calendar_vendor() {

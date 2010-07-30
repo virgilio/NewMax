@@ -3,7 +3,7 @@
 	<fieldset>
  		<legend><?php __('Add Visit'); ?></legend>
 	<?php
-		echo $this->Form->input('contact_id');
+		echo $this->Form->input('contact_id', array('label' => 'Contato/Cliente'));
 		echo $this->Form->input('date');
 		echo $this->Form->input('status');
 		echo $this->Form->input('report');

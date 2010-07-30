@@ -2,6 +2,8 @@
 class AppController extends Controller {
     var $components = array('Acl', 'Auth', 'Session');
 
+    
+
     function beforeFilter() {
         //Configure AuthComponent
         $this->Auth->actionPath = 'controllers/';
@@ -243,6 +245,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Visits/index');
         $this->Acl->allow($group, 'controllers/Visits/view');
         $this->Acl->allow($group, 'controllers/Visits/calendar');
+        $this->Acl->allow($group, 'controllers/Visits/report');
 
 
         //Manager permissions
@@ -274,6 +277,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Visits/index');
         $this->Acl->allow($group, 'controllers/Visits/view');
         $this->Acl->allow($group, 'controllers/Visits/calendar');
+        $this->Acl->allow($group, 'controllers/Visits/report');
 
 
         //Vendors permissions

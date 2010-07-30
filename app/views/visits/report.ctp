@@ -1,5 +1,5 @@
 <div class="visits index">
-    <h2><?php __('Visits');?></h2>
+    <h2><?php __('Relatório')?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout" >
         <thead>
             <tr>
@@ -78,5 +78,5 @@
         <li><?php echo $this->Html->link(__('New Contact', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
     </ul>
 </div>
- * */ ?>
- 
+
+ */ ?>

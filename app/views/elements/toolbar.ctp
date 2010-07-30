@@ -28,14 +28,30 @@ if($session->read('Auth.User') != null) {
         ?>
 <div id="toolbar">
     <ul class="container_12">
-        <li><?php echo $this->Html->link(__('Nova Visita Avulsa', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
-        <?php
-        /*<li><?php echo $this->Html->link(__('Excluir Visitas', true), array('controller' => 'visits', 'action' => 'delete')); ?></li>*/
-        ?>
+        <li><?php echo $this->Html->link(__('Nova Visita', true), array('controller' => 'visits', 'action' => 'add')); ?></li>
+                <?php
+                if(1) {
+                    ?>
+        <li id="report"><?php echo $this->Html->link(__('Novo Relatório', true), "#"); ?></li>
+        <div id="form_report">
+                        <?php
+                        $session->flash('auth');
+                        echo $form->create('Visit', array('action' => 'report'));
+                        echo $form->input('user_id', array('label' => 'Vendedor', 'options' => $userVendors, 'empty' => 'Escolher vendedor ...'));
+                        echo $form->input('client_id', array('label' => 'Cliente', 'options' => $clientNames, 'empty' => 'Cliente ...'));
+                        echo $form->input('from', array('label' => 'De', 'type' => 'date', 'dateFormat' => 'DMY',
+                        'minYear' => date('Y') - 2, 'maxYear' => date('Y')));
+                        echo $form->input('to', array('label' => 'Até', 'type' => 'date', 'dateFormat' => 'DMY',
+                        'minYear' => date('Y') - 2, 'maxYear' => date('Y')));
+
+                        echo $form->end('Gerar relatorio');
+                        ?>
+        </div>
     </ul>
 </div>
 
-        <?php
+            <?php
+        }
     }
     else if($userInfo['group_id'] <= 1 && $this->name == 'Users' && $this->action != 'view' && $this->action != 'profile') { // admin
         //if admin
@@ -62,7 +78,7 @@ if($session->read('Auth.User') != null) {
 <div id="toolbar">
     <ul class="container_12">
         <li><?php echo $this->Html->link(__('Novo', true), array('controller' => 'clients', 'action' => 'add')); ?></li>
-        <?php /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'clients', 'action' => 'edit/' . $client['Client']['id'])); ?></li> */?>
+                <?php /*<li><?php echo $this->Html->link(__('Desativar', true), array('controller' => 'clients', 'action' => 'edit/' . $client['Client']['id'])); ?></li> */?>
                 <?php
                 if($this->action == 'view') {
                     ?>
@@ -97,4 +113,3 @@ if($session->read('Auth.User') != null) {
     }
 }
 ?>
-

@@ -55,7 +55,8 @@
             $(document).ready(function() {
                 $('#login').corner("4px");
                 $('#form_login').corner("4px");
-                $('#login').toggle(function() {
+                $('#login').toggle(
+                function() {
                     $(this).uncorner();
                     $(this).corner("4px top")
                     $('#form_login').slideDown('fast');
@@ -64,6 +65,17 @@
                     $('#form_login').slideUp('fast', function() {
                         $('#login').corner("4px");
                     });
+                });
+
+                $('#report').toggle(
+                function() {
+                    $(this).uncorner();
+                    $(this).corner("4px top")
+                    //$('#form_report').slideDown('fast');
+                    $('#form_report').css({display: 'table'});
+                },
+                function() {
+                    $('#form_report').css({display: 'none'});
                 });
 
                 $('.visit').tipsy({gravity: $.fn.tipsy.autoNS, html: true});
@@ -89,6 +101,7 @@
         <div id="content">
             <div class="container_12">
                 <?php
+                echo $this->element('breadcrumb');
                 echo $this->Session->flash();
                 echo $this->Session->flash('auth');
 //                echo "<pre>";

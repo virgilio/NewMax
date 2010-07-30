@@ -2,9 +2,47 @@
 class VisitsController extends AppController {
 
     var $name = 'Visits';
+    var $uses = array('Visit', 'Client', 'Contact', 'User');
 
     function index() {
         $this->Visit->recursive = 0;
+        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
+        $this->set('visits', $this->paginate());
+    }
+
+    function index_vendor() {
+        $this->Visit->recursive = 0;
+        $this->set('visits', $this->paginate());
+    }
+
+    function report() {
+        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
+
+        $data = $this->data;
+        $this->Visit->recursive = 0;
+        $conditions = array();
+
+        if($data['Visit']['user_id'] == null && $data['Visit']['client_id'] == null) {
+            $this->Session->setFlash('Nenhum Vendedor ou Cliente foi selecionado');
+            $this->redirect(array('action' => 'index'));
+        }
+        
+        $data['Visit']['user_id'] != null ? $conditions['Contact.user_id'] = $data['Visit']['user_id'] : null;
+        $data['Visit']['client_id'] != null ? $conditions['Contact.client_id'] = $data['Visit']['client_id'] : null;
+        $to = $data['Visit']['to']['day'] ."-". $data['Visit']['to']['month'] ."-". $data['Visit']['to']['year'];
+        $from = $data['Visit']['from']['day'] ."-". $data['Visit']['from']['month'] ."-". $data['Visit']['from']['year'];
+        $contacts = $this->Contact->find("list", array('fields' => array('id'), 'conditions' => $conditions));
+
+
+        $this->paginate = array(
+                'conditions' => array(
+                        'Visit.contact_id' =>  $contacts,
+                        'Visit.real_date >' => $from,
+                        'Visit.real_date <' => $to
+                )
+        );
         $this->set('visits', $this->paginate());
     }
 
@@ -17,6 +55,8 @@ class VisitsController extends AppController {
     }
 
     function add() {
+        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
         if (!empty($this->data)) {
             $this->Visit->create();
             if ($this->Visit->save($this->data)) {
@@ -31,6 +71,8 @@ class VisitsController extends AppController {
     }
 
     function edit($id = null) {
+        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
         if (!$id && empty($this->data)) {
             $this->Session->setFlash(__('Invalid visit', true));
             $this->redirect(array('action' => 'index'));
@@ -67,8 +109,9 @@ class VisitsController extends AppController {
 
     }
 
-    function calendar_manager() {
+    function calendar_vendor() {
 
     }
+
 }
 ?>

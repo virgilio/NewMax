@@ -116,6 +116,60 @@ body {
     padding:2px;
     width:100px;
 }
+
+/*********/
+
+#VisitReportForm label{
+    
+}
+
+#form_report{
+    background-color: #F5F5F5;
+    opacity:0.988;
+    border: 1px solid #CCC;
+    display:none;
+    /*position: relative;*/
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#form_report form label {
+    width: 80px;
+    text-align: right;
+    height: 30px;
+    padding: 4px 0;
+    float: left;
+    margin-right: 3px;
+}
+
+#form_report form div {
+    background: none repeat scroll 0 0 transparent;
+    padding-left: 10px;
+    padding-top: 2px;
+    width: 350px;
+    margin-bottom: 0;
+    text-align: left;
+}
+#form_report .submit {
+    width: 150px;
+}
+#form_report input[type="submit"] {
+    font-size:1em;
+    padding:2px;
+    width: 150px;
+}
+
+#form_report form select{
+    margin: 0;
+    padding: 4px 0;
+    height: 30px;
+}
+
+
+/**/
+
+
 form {
     clear:both;
     margin-right:20px;

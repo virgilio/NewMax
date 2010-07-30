@@ -131,6 +131,7 @@ p {
     padding-top:2px;
     text-align: center;
     width:704px;
+    height: 30px;
 }
 .days_calendar{
     background-color:#E8E8E8;
@@ -189,8 +190,10 @@ p {
     float: none;
     border: none;
     height:auto;
-    padding: 5px 0;
-    margin: 0; }
+    padding: 0px 0;
+    margin: 0;
+    text-decoration: underline;
+}
 #calendar li span{
     color:grey;
     font-size:0.7em;
@@ -260,4 +263,22 @@ p {
     text-align:right;
     width:150px;
     padding-top:5px;
+}
+
+#calendar_back{
+    float: left;
+    width: 20%;
+    color: white;
+}
+#actualDate{
+    float: left;
+    width: 60%;
+}
+#calendar_next{
+    float: right;
+    width: 20%;
+}
+
+#calendar_next a, #calendar_back a{
+    color: #ffffff;
 }

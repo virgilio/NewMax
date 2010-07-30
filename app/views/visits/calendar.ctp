@@ -6,7 +6,25 @@
 
 ?>
 <!-- Calendar -->
-<div class="title_calendar"><?php echo $month."/".$year?></div>
+<div class="title_calendar">
+    <div id="calendar_back">
+       <?php
+           $backMonth = date('m', mktime(0,0,0,$month-1, 1, $year));
+           $backYear = date('Y', mktime(0,0,0,$month-1, 1, $year));
+           echo $this->Html->link('<< anterior', array('controller' => 'visits', 'action' => 'calendar', $backYear, $backMonth));
+       ?>
+    </div>
+    <div id="actualDate">
+        <?php echo $month."/".$year?>
+    </div>
+    <div id="calendar_next">
+       <?php
+           $nextMonth = date('m', mktime(0,0,0,$month+1, 1, $year));
+           $nextYear = date('Y', mktime(0,0,0,$month+1, 1, $year));
+           echo $this->Html->link('próximo >>', array('controller' => 'visits', 'action' => 'calendar', $nextYear, $nextMonth));
+       ?>
+    </div>
+</div>
 
 <ul class="days_calendar">
     <li>Domingo</li>
@@ -32,45 +50,25 @@
 <ol id="calendar">
     <?php
         //Jumping days of the week
-        for($i = 0; $i < $daysToJump; $i++){
+        for($i = 1; $i < $daysToJump; $i++){
             echo "<li></li>";
         }
 
         //all the days of the month
         for($actualDay = 1; $actualDay < $daysInMonth; $actualDay++){
             echo "<li><span>".$actualDay."</span><ul>";
-//            echo date('j', strtotime($monthVisits[$actualVisit]['Visit']['date']));
-
 
             while(date('j', strtotime($monthVisits[$actualVisit]['Visit']['date'])) == $actualDay){
-                echo "<li class='visit' title='".$monthVisits[$actualVisit]['Contact']['name']."'>".$monthVisits[$actualVisit]['Contact']['client_id']."</li>";
+                $clientName = $clientsData[$monthVisits[$actualVisit]['Contact']['client_id']];
+                $tooltipText = "Contato: ".$monthVisits[$actualVisit]['Contact']['name']."<br/>"."Tel: ".$monthVisits[$actualVisit]['Contact']['phone'];
+                
+                echo "<li class='visit' title='".$tooltipText."'>".$clientName."</li>";
                 $actualVisit++;
             }
             //<li class='visit' title='vendedor <br/> aceita <b>html</b>'>Cliente</li>;
             
             echo "</ul></li>";
         }
-
-        //Printing every visit in the right day of the month
-//        foreach($monthVisits as $visitToShow)
-//            echo "
-//                <li>
-//                    <span>1</span>
-//                    <ul>
-//                    <li class='visit' title='vendedor <br/> aceita <b>html</b>'>Cliente</li>
-//                </ul>
-//            </li>";
     ?>
     <div class="clear"></div>
 </ol>
-
-<?php
-/*
-<li class="monday">
-    <span>1</span>
-    <ul>
-        <li class="visit" title="vendedor <br/> aceita <b>html</b>">Cliente</li>
-    </ul>
-</li>
-*/
-?>

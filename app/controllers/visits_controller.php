@@ -106,6 +106,8 @@ class VisitsController extends AppController {
     }
 
     function calendar($year = null, $month = null) {
+        $this->loadModel('Client');
+
         if($year == null || $month == null){
             $year = date('Y');
             $month = date('m');
@@ -124,15 +126,14 @@ class VisitsController extends AppController {
                 )
         ));
 
-//        echo "date = ".$date;
-//        echo "nextDate = ".$nextDate;
-        echo "<pre>";
-        echo print_r($monthVisits);
-        echo "</pre>";
+        $clientsData = $this->Client->find('list',  array(
+                'fields'=> array('Client.id', 'Client.name')
+        ));
 
         $this->set('monthVisits', $monthVisits);
         $this->set('year', $year);
         $this->set('month', $month);
+        $this->set('clientsData', $clientsData);
     }
 
     function calendar_vendor() {

@@ -136,8 +136,39 @@ class VisitsController extends AppController {
         $this->set('clientsData', $clientsData);
     }
 
-    function calendar_vendor() {
+    function calendar_vendor($year = null, $month = null) {
+        $this->loadModel('Client');
+        $userAuth = $this->Session->read('Auth.User');
 
+        if($year == null || $month == null){
+            $year = date('Y');
+            $month = date('m');
+        }
+
+
+        //$userAuth['id']
+        $date = $year."-".$month."-01";
+        $nextDate = date("Y-m-d", mktime(0, 0, 0, $month + 1, 1, $year));
+        $monthVisits = $this->Visit->find('all',  array(
+                'conditions' => array(
+                    'Visit.date >=' => $date,
+                    'Visit.date <' => $nextDate,
+                    'Contact.user_id' => $userAuth['id']
+                ),
+                'order' => array(
+                    'Visit.date',
+                    'Contact.name'
+                )
+        ));
+
+        $clientsData = $this->Client->find('list',  array(
+                'fields'=> array('Client.id', 'Client.name')
+        ));
+
+        $this->set('monthVisits', $monthVisits);
+        $this->set('year', $year);
+        $this->set('month', $month);
+        $this->set('clientsData', $clientsData);
     }
 
 }

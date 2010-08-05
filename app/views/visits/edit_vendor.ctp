@@ -3,11 +3,11 @@
 	<fieldset>
  		<legend><?php __('Enviar Relatório'); ?></legend>
 	<?php
-		//echo $this->Form->input('id');
-		//echo $this->Form->input('contact_id');
-		//echo $this->Form->input('date');
-                echo "<h3>Visita com " . $this->data['Contact']['name'] . " para " . date("d/m/Y", strtotime($this->data['Visit']['date'])) . "</h3>";
-                echo $this->Form->input('real_date', array('label' => 'Realizada em: '));
+		echo $this->Form->input('id', array('type' => 'hidden'));
+echo $this->Form->input('contact_id', array('type' => 'hidden'));
+echo $this->Form->input('date', array('type' => 'hidden'));
+echo "<h3>Visita com " . $this->data['Contact']['name'] . " para " . date("d/m/Y", strtotime($this->data['Visit']['date'])) . "</h3>";
+echo $this->Form->input('real_date', array('label' => 'Realizada em: '));
 		echo $this->Form->input('status', array('options' => array('0' => 'em aberto', '2' => 'realizada')));
 		echo $this->Form->input('report', array('label' => 'Relatório '));
 	?>

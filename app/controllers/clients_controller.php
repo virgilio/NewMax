@@ -33,44 +33,45 @@ class ClientsController extends AppController {
 	}
 
 	function add() {
-                //Carregando Modelo Group
-                $this->loadModel('Group');
-
-                //Pegando lista de usuarios
-                $userList = $this->Client->User->find('all');
-                //Pegando Grupo com nome 'Vendedor'
-                $groupList = $this->Group->findByName('Vendedor');
-                //Pegando id do Grupo
-                $vendorId =  $groupList['Group']['id'];
-
-                //Criando array de opções para o select de vendedores para o cliente
-                $options = array();
-
-                //Colocando em cada posição [id] => [nome+sobrenome+usuario]
-                foreach ($userList as $user){
-                    if($user['User']['group_id'] == $vendorId)
-                        $options[$user['User']['id']] = $user['User']['first_name']." ".$user['User']['last_name']." (".$user['User']['username'].")";
-                }
-
-                //Criando array que sera utilizado pelo helper Form
-                $usersInfoList = array('options' => $options, 'label' => 'Vendedor');
-
-                //Setando variavel da view
-                $this->set('userInfoList', $usersInfoList);
-
-		if (!empty($this->data)) {
-			$this->Client->create();
-			if ($this->Client->save($this->data)) {
-				$this->Session->setFlash(__('The client has been saved', true));
-			} else {
-				$this->Session->setFlash(__('The client could not be saved. Please, try again.', true));
-			}
-                        $this->redirect(array('action' => 'index'));
-		}
-		$users = $this->Client->User->find('list');
-		$this->set(compact('users'));
+	  //Carregando Modelo Group
+	  $this->loadModel('Group');
+	  
+	  //Pegando lista de usuarios
+	  $userList = $this->Client->User->find('all');
+	  //Pegando Grupo com nome 'Vendedor'
+	  $groupList = $this->Group->findByName('Vendedor');
+	  //Pegando id do Grupo
+	  $vendorId =  $groupList['Group']['id'];
+	  
+	  //Criando array de opções para o select de vendedores para o cliente
+	  $options = array();
+	  
+	  //Colocando em cada posição [id] => [nome+sobrenome+usuario]
+	  foreach ($userList as $user){
+	    if($user['User']['group_id'] == $vendorId)
+	      $options[$user['User']['id']] = $user['User']['first_name']." ".$user['User']['last_name']." (".$user['User']['username'].")";
+	  }
+		
+	  //Criando array que sera utilizado pelo helper Form
+	  $usersInfoList = array('options' => $options, 'label' => 'Vendedor');
+	  
+	  //Setando variavel da view
+	  $this->set('userInfoList', $usersInfoList);
+	  
+	  if (!empty($this->data)) {
+	    /*	    debug($this->data);   die();*/
+	    $this->Client->create();
+	    if ($this->Client->save($this->data)) {
+	      $this->Session->setFlash(__('The client has been saved', true));
+	    } else {
+	      $this->Session->setFlash(__('The client could not be saved. Please, try again.', true));
+	    }
+	    $this->redirect(array('action' => 'index'));
+	  }
+	  $users = $this->Client->User->find('list');
+	  $this->set(compact('users'));
 	}
-
+	
 	function edit($id = null) {
                 //Carregando Modelo Group
                 $this->loadModel('Group');

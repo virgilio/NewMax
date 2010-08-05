@@ -2,9 +2,11 @@
 class ContactsController extends AppController {
 
     var $name = 'Contacts';
+    var $uses = array('Contact', 'Visit', 'Client', 'User');
 
     function index() {
-        $this->Contact->recursive = 0;
+        $this->Contact->recursive = 0;	
+	//$this->paginate['joins'] = array('Client');
         $this->set('contacts', $this->paginate());
     }
 
@@ -38,18 +40,29 @@ class ContactsController extends AppController {
     }
 
     function add() {
-        if (!empty($this->data)) {
-            $this->Contact->create();
-            if ($this->Contact->save($this->data)) {
-                $this->Session->setFlash(__('The contact has been saved', true));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The contact could not be saved. Please, try again.', true));
-            }
-        }
-        $clients = $this->Contact->Client->find('list');
-        $users = $this->Contact->User->find('list');
-        $this->set(compact('clients', 'users'));
+      if (!empty($this->data)) {
+	$day = 60*60*24;
+	$this->Contact->create();
+	if ($this->Contact->save($this->data)) {
+	  $this->Visit->create();
+	  $data = array(
+			'Visit' => array(
+					 'contact_id' => $this->Contact->id,
+					 'date' => date('Y-m-d', strtotime('today') + $this->data['Contact']['frequency'] * $day),
+					 'status' => 0
+					 ));
+	
+	  $this->Visit->save($data);
+	  
+	  $this->Session->setFlash(__('The contact has been saved', true));
+	  $this->redirect(array('action' => 'index'));
+	} else {
+	  $this->Session->setFlash(__('The contact could not be saved. Please, try again.', true));
+	}
+      }
+      $clients = $this->Contact->Client->find('list');
+      $users = $this->Contact->User->find('list');
+      $this->set(compact('clients', 'users'));
     }
 
     function edit($id = null) {

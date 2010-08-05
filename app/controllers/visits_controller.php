@@ -19,35 +19,35 @@ class VisitsController extends AppController {
     }
 
     function report() {
-        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
-        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
-
-        $data = $this->data;
-        $this->Visit->recursive = 0;
-        $conditions = array();
-
-        if($data['Visit']['user_id'] == null && $data['Visit']['client_id'] == null) {
-            $this->Session->setFlash('Nenhum Vendedor ou Cliente foi selecionado');
-            $this->redirect(array('action' => 'index'));
-        }
-        
-        $data['Visit']['user_id'] != null ? $conditions['Contact.user_id'] = $data['Visit']['user_id'] : null;
-        $data['Visit']['client_id'] != null ? $conditions['Contact.client_id'] = $data['Visit']['client_id'] : null;
-        $to = $data['Visit']['to']['day'] ."-". $data['Visit']['to']['month'] ."-". $data['Visit']['to']['year'];
-        $from = $data['Visit']['from']['day'] ."-". $data['Visit']['from']['month'] ."-". $data['Visit']['from']['year'];
-        $contacts = $this->Contact->find("list", array('fields' => array('id'), 'conditions' => $conditions));
-
-
-        $this->paginate = array(
-                'conditions' => array(
-                        'Visit.contact_id' =>  $contacts,
-                        'Visit.real_date >' => $from,
-                        'Visit.real_date <' => $to
-                )
-        );
-        $this->set('visits', $this->paginate());
+      $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+      $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
+      
+      $data = $this->data;
+      $this->Visit->recursive = 0;
+      $conditions = array();
+      
+      if($data['Visit']['user_id'] == null && $data['Visit']['client_id'] == null) {
+	$this->Session->setFlash('Nenhum Vendedor ou Cliente foi selecionado');
+	$this->redirect(array('action' => 'index'));
+      }
+      
+      $data['Visit']['user_id'] != null ? $conditions['Contact.user_id'] = $data['Visit']['user_id'] : null;
+      $data['Visit']['client_id'] != null ? $conditions['Contact.client_id'] = $data['Visit']['client_id'] : null;
+      $to = $data['Visit']['to']['year'] ."-". $data['Visit']['to']['month'] ."-". $data['Visit']['to']['day'];
+      $from = $data['Visit']['from']['year'] ."-". $data['Visit']['from']['month'] ."-". $data['Visit']['from']['day'];
+      $contacts = $this->Contact->find("list", array('fields' => array('id'), 'conditions' => $conditions));
+      
+      
+      $this->paginate = array(
+			      'conditions' => array(
+						    'Visit.contact_id' =>  $contacts
+						    //'Visit.real_date >' => $from,
+						    //'Visit.real_date <' => $to
+						    )
+			      );
+      $this->set('visits', $this->paginate());
     }
-
+    
     function view($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid visit', true));
@@ -95,27 +95,44 @@ class VisitsController extends AppController {
     }
 
     function edit_vendor($id = null) {
-        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
-        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
-        if (!$id && empty($this->data)) {
-            $this->Session->setFlash(__('Invalid visit', true));
-            $this->redirect(array('action' => 'index'));
-        }
-        if (!empty($this->data)) {
-            if ($this->Visit->save($this->data)) {
-                $this->Session->setFlash(__('The visit has been saved', true));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The visit could not be saved. Please, try again.', true));
-            }
-        }
-        if (empty($this->data)) {
-            $this->data = $this->Visit->read(null, $id);
-        }
-        $contacts = $this->Visit->Contact->find('list');
-        $this->set(compact('contacts'));
-    }
+      $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+      $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
 
+      $day = 60*60*24;
+      $real_date = $this->data['Visit']['real_date']['year'] . "-"  . $this->data['Visit']['real_date']['month'] . "-" . $this->data['Visit']['real_date']['day'];
+      
+
+      if (!$id && empty($this->data)) {
+	$this->Session->setFlash(__('Invalid visit', true));
+	$this->redirect(array('action' => 'index'));
+      }
+      if (!empty($this->data)) {
+	$this->Visit->id = $id;
+	if ($this->Visit->save($this->data)) {
+	  $this->Session->setFlash(__('A visita foi salva', true));
+	  $this->Visit->create();
+	  $contact = $this->Contact->find("all", array('fields' => array('id', 'frequency', 'client_id'),  'conditions' => array('Contact.id' => $this->data['Visit']['contact_id'] )));
+	  $data = array(
+                        'Visit' => array(
+                                         'contact_id' => $contact['0']['Contact']['id'],
+                                         'date' => date('Y-m-d', strtotime($real_date) + $contact['0']['Contact']['frequency'] * $day),
+                                         'status' => 0
+                                         ));
+	  if($this->data['Visit']['status'] == 2)
+	    $this->Visit->save($data);
+
+	  $this->redirect(array('action' => 'index_vendor'));
+	} else {
+	  $this->Session->setFlash(__('The visit could not be saved. Please, try again.', true));
+	}
+      }
+      if (empty($this->data)) {
+	$this->data = $this->Visit->read(null, $id);
+      }
+      $contacts = $this->Visit->Contact->find('list');
+      $this->set(compact('contacts'));
+    }
+    
     function delete($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid id for visit', true));

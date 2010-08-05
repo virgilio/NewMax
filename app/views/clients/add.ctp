@@ -4,9 +4,9 @@
  		<legend><?php __('Cadastro de cliente'); ?></legend>
 	<?php
 		echo $this->Form->input('name', array('label' => 'Nome do Cliente'));
-                echo $this->Form->input('User.user_id', $userInfoList);
+                echo $this->Form->input('Client.user_id', $userInfoList);
                 //echo $this->Form->input('user_id', $userInfoList);
-		//echo $this->Form->input('user_id');
+//		echo $this->Form->input('user_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Salvar', true));?>

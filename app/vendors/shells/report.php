@@ -52,14 +52,16 @@ class ReportShell extends Shell{
 						     'order' => array('Visit.date DESC'),
 						     'recursive' => 0,
 						     'conditions' => 'contact_id=' . $contact['Contact']['id'] . " AND status=0"));
-      
+      //echo print_r($openVisit);
       if(empty($openVisit)){ // Sem visitas em aberto
+	echo "";
 	$lastVisit = $this->Visit->find('first', array('fields' => array('id', 'real_date', 'status', 'date'), 
 						       'order' => array('Visit.date DESC'), 
 						       'recursive' => 0, 
 						       'conditions' => 'contact_id=' . $contact['Contact']['id']));
 	
 	if(!empty($lastVisit)) { //Existe pelo menos uma última visita
+	  echo "Exist visitas \n";
 	  $this->Visit->create();	  
 	  $data = array(
 			'Visit' => array(
@@ -69,6 +71,7 @@ class ReportShell extends Shell{
 					 ));
 	}
 	else{ // Não existe visita, marca a partir de hoje
+	  echo "Nao existe visita\n";
 	  $this->Visit->create();	  
 	  $data = array(
                         'Visit' => array(
@@ -84,7 +87,7 @@ class ReportShell extends Shell{
 	$delta = strtotime('today') - strtotime($openVisit['Visit']['date']);
 	$frequency = $contact['Contact']['frequency'] * $day;
 	echo $delta . " => " . $openVisit['Visit']['date'] . " <> " . $contact['Contact']['frequency']*$day . "\n";
-	if($delta > $frequency){ //Visita em atraso
+	if($delta > $frequency / 2 ){ //Visita em atraso
 	  $this->Visit->id = $openVisit['Visit']['id'];
 	  $this->Visit->saveField('status', 1);
 	  

@@ -1,5 +1,5 @@
 <div class="clients index_vendor">
-    <h4><?php __('Clientes');?></h4>
+    <h2><?php __('Clientes');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>

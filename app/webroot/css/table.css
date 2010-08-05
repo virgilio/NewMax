@@ -33,21 +33,21 @@
 .table_general_layout tbody {
 }
 
-.table_general_layout tbody tr {
+.table_general_layout tbody tr td {
     border-bottom: solid 1px #999;
 }
 
-.table_general_layout tbody tr.altrow {
+.table_general_layout tbody tr.altrow td {
     background-color: #E0E0E0;
     border-bottom:solid 1px #999;
 }
 
-.table_general_layout tbody tr {
+.table_general_layout tbody tr td {
     background-color: #CCCCCC;
     border-bottom:solid 1px #999;
 }
 
-.table_general_layout tbody tr:hover {
+.table_general_layout tbody tr:hover td {
     background:#FFF;
 }
 

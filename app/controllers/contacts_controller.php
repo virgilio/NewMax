@@ -8,6 +8,25 @@ class ContactsController extends AppController {
 		$this->set('contacts', $this->paginate());
 	}
 
+        function index_vendor($vendor = null) {
+            if($vendor == null){
+                $this->Session->setFlash(__('Vendedor não cadastrado', true));
+            }
+            else{
+                $this->Contact->recursive = 0;
+                $this->paginate['Contact'] = array(
+                    'conditions' => array(
+                        'Contact.user_id' => $vendor
+                    )
+                );
+
+		$this->set('contacts', $this->paginate());
+
+
+
+            }
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid contact', true));

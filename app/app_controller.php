@@ -286,7 +286,7 @@ class AppController extends Controller {
         $this->Acl->allow($group, 'controllers/Clients/index_vendor');
         $this->Acl->allow($group, 'controllers/Clients/view');
         //Contacts
-        $this->Acl->allow($group, 'controllers/Contacts/index');
+        $this->Acl->allow($group, 'controllers/Contacts/index_vendor');
         $this->Acl->allow($group, 'controllers/Contacts/view');
         //Users
         $this->Acl->allow($group, 'controllers/Users/edit_vendor');

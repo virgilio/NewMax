@@ -44,7 +44,7 @@ $class = ' class="altrow"';?>
         </dd>
         <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ativo'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-<?php echo $client['Contact']['active'] == '1' ? 'Sim' : 'Não'; ?>
+<?php echo $contact['Contact']['active'] == '1' ? 'Sim' : 'Não'; ?>
             &nbsp;
         </dd>
         <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>

@@ -97,6 +97,7 @@ body {
 }
 #form_login form fieldset {
     background:none repeat scroll 0 0 transparent;
+	margin-bottom:0;
     padding-left:26px;
     padding-top:6px;
     width:150px;

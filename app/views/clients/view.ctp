@@ -8,12 +8,12 @@
 			&nbsp;
 		</dd>*/
             ?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome do Cliente'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $client['Client']['name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vendedor'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vendedor Responsável'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($client['User']['full_name'], array('controller' => 'users', 'action' => 'view', $client['User']['id'])); ?>
 			&nbsp;

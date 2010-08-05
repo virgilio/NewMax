@@ -3,6 +3,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
 */
+$userInfo = $session->read('Auth.User');
 $controllerNames = array(
         'Visits' => 'Visitas',
         'Users' => 'Usuários',
@@ -32,11 +33,11 @@ if($session->read('Auth.User') != null) {
     <ul id="breadcrumb">
         <li>
                 <?php //echo $this->Html->link(__($html->image("bc/home.gif"), true), array('controller' => 'visits', 'action' => 'calendar'), array('escape' => false));
-                echo $this->Html->link(__("Home", true), array('controller' => 'visits', 'action' => 'calendar'), array('escape' => false));
+                echo $this->Html->link(__("Home", true), array('controller' => 'visits', 'action' => $userInfo['id'] < 3 ? 'calendar' : 'calendar_vendor'), array('escape' => false));
                 ?>
         </li>
         <li>
-                <?php echo $this->Html->link(__(!empty($controllerNames[$this->name]) ? $controllerNames[$this->name] : $this->name, true), array('controller' => $this->name, 'action' => 'index')); ?>
+                <?php echo $this->Html->link(__(!empty($controllerNames[$this->name]) ? $controllerNames[$this->name] : $this->name, true), array('controller' => $this->name, 'action' => $this->action)); ?>
         </li>
         <li>
                 <?php echo $this->Html->link(__(!empty($actionNames[$this->action]) ? $actionNames[$this->action] : $this->action, true), array('controller' => $this->name, 'action' => $this->action)); ?>

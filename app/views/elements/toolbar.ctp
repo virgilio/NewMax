@@ -102,7 +102,7 @@ if($session->read('Auth.User') != null) {
         <?php
     }
 
-    else if($this->name == 'Contacts') { // admin
+    else if($this->name == 'Contacts' && $userInfo['group_id'] <= 2) { // admin
         ?>
 <div id="toolbar">
     <ul class="container_12">

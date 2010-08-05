@@ -6,8 +6,7 @@
 }
 
 .table_general_layout thead {
-    /*color: #ffffff;*/
-	color:red;
+    color: #ffffff;
 }
 
 .table_general_layout thead a {
@@ -38,12 +37,12 @@
     border-bottom: solid 1px #999;
 }
 
-.table_general_layout tbody tr:nth-child(odd) {
+.table_general_layout tbody tr.altrow {
     background-color: #E0E0E0;
     border-bottom:solid 1px #999;
 }
 
-.table_general_layout tbody tr:nth-child(even) {
+.table_general_layout tbody tr {
     background-color: #CCCCCC;
     border-bottom:solid 1px #999;
 }

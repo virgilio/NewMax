@@ -278,8 +278,10 @@ input[type="submit"] {
     width:auto;
 }
 form .submit input[type="submit"] {
+	-webkit-border-radius:8px 8px 8px 8px;
     -moz-border-radius:8px 8px 8px 8px;
     background:-moz-linear-gradient(center top , #466388, #0D213C) repeat scroll 0 0 #0D213C;
+	background-color:#466388;
     border-color:#000066;
     color:#FFFFFF;
     cursor:pointer;

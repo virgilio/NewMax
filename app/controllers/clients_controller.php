@@ -2,7 +2,7 @@
 class ClientsController extends AppController {
 
 	var $name = 'Clients';
-
+        var $uses = array('Client', 'Contact');
 	function index() {
 		$this->Client->recursive = 0;
 		$this->set('clients', $this->paginate());
@@ -13,9 +13,11 @@ class ClientsController extends AppController {
                 $id = $user['id'];
 		$this->Client->recursive = 0;
 
+                $clients = $this->Contact->find("list", array('fields' => array('client_id'), 'conditions' => array('Contact.user_id' => $id)));
+
                 $this->paginate['Client'] = array(
                     'conditions' => array(
-                        'Client.user_id ' => $id
+                        'Client.id' =>  $clients,
                     )
                 );
 

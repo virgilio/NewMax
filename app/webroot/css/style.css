@@ -291,6 +291,7 @@ form .submit input[type="submit"] {
 }
 form .submit input[type="submit"]:hover {
     background:-moz-linear-gradient(center top , #0D213C, #466388) repeat scroll 0 0 #466388;
+	background-color:#000066;
     border-color:#000099;
 }
 

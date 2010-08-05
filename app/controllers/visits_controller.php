@@ -13,6 +13,8 @@ class VisitsController extends AppController {
 
     function index_vendor() {
         $this->Visit->recursive = 0;
+        $user_id = $this->Session->read('Auth.User');
+        $this->paginate['conditions'] = array('user_id' => $user_id['id'], 'status' => 0);
         $this->set('visits', $this->paginate());
     }
 
@@ -71,6 +73,28 @@ class VisitsController extends AppController {
     }
 
     function edit($id = null) {
+        $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
+        $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
+        if (!$id && empty($this->data)) {
+            $this->Session->setFlash(__('Invalid visit', true));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->data)) {
+            if ($this->Visit->save($this->data)) {
+                $this->Session->setFlash(__('The visit has been saved', true));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The visit could not be saved. Please, try again.', true));
+            }
+        }
+        if (empty($this->data)) {
+            $this->data = $this->Visit->read(null, $id);
+        }
+        $contacts = $this->Visit->Contact->find('list');
+        $this->set(compact('contacts'));
+    }
+
+    function edit_vendor($id = null) {
         $this->set('userVendors', $this->User->find('list', array('fields' => array('id', 'full_name'), 'conditions' => 'group_id = 3')));
         $this->set('clientNames', $this->Client->find('list', array('fields' => array('id', 'name'), 'conditions' => '')));
         if (!$id && empty($this->data)) {

@@ -1,14 +1,15 @@
 <div class="visits form">
 <?php echo $this->Form->create('Visit');?>
 	<fieldset>
- 		<legend><?php __('Edit Visit'); ?></legend>
+ 		<legend><?php __('Enviar Relatório'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('contact_id');
-		echo $this->Form->input('date');
-                echo $this->Form->input('real_date');
-		echo $this->Form->input('status');
-		echo $this->Form->input('report');
+		//echo $this->Form->input('id');
+		//echo $this->Form->input('contact_id');
+		//echo $this->Form->input('date');
+                echo "<h3>Visita com " . $this->data['Contact']['name'] . " para " . date("d/m/Y", strtotime($this->data['Visit']['date'])) . "</h3>";
+                echo $this->Form->input('real_date', array('label' => 'Realizada em: '));
+		echo $this->Form->input('status', array('options' => array('0' => 'em aberto', '2' => 'realizada')));
+		echo $this->Form->input('report', array('label' => 'Relatório '));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

@@ -1,4 +1,4 @@
-<div class="contacts view">
+<div class="contacts view_">
     <h2><?php  __('Contact');?></h2>
     <dl><?php $i = 0;
 $class = ' class="altrow"';?>
@@ -59,6 +59,9 @@ $class = ' class="altrow"';?>
         </dd>
     </dl>
 </div>
+
+<?php
+/*
 <div class="actions">
     <h3><?php __('Actions'); ?></h3>
     <ul>
@@ -112,7 +115,8 @@ $class = ' class="altrow"';?>
         </tr>
     <?php endforeach; ?>
     </table>
-<?php endif; ?>
+<?php endif; ?>*/
+?>
 
 <?php /*    <div class="actions">
         <ul>

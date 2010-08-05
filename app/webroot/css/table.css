@@ -6,7 +6,8 @@
 }
 
 .table_general_layout thead {
-    color: #ffffff;
+    /*color: #ffffff;*/
+	color:red;
 }
 
 .table_general_layout thead a {

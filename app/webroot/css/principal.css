@@ -50,8 +50,8 @@ p {
     display:none;
     /*height:150px;*/
     position:absolute;
-    right:0;
-    top:28px;
+    right:-3px;
+    top:33px;
     width:170px;
 }
 

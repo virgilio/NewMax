@@ -1,20 +1,15 @@
 <div class="users index">
-    <h2><?php __('Users');?></h2>
+    <h2><?php __('Usu&aacute;rios');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>
-                <th><?php echo $this->Paginator->sort('id');?></th>
-                <th><?php echo $this->Paginator->sort('username');?></th>
-                <th><?php echo $this->Paginator->sort('password');?></th>
-                <th><?php echo $this->Paginator->sort('group_id');?></th>
-                <th><?php echo $this->Paginator->sort('email');?></th>
-                <th><?php echo $this->Paginator->sort('first_name');?></th>
-                <th><?php echo $this->Paginator->sort('last_name');?></th>
-                <th><?php echo $this->Paginator->sort('phone');?></th>
-                <th><?php echo $this->Paginator->sort('active');?></th>
-                <th><?php echo $this->Paginator->sort('created');?></th>
-                <th><?php echo $this->Paginator->sort('modified');?></th>
-                <th class="actions"><?php __('Actions');?></th>
+                <th><?php echo $this->Paginator->sort('Usuário','username');?></th>
+                <th><?php echo $this->Paginator->sort('Nome','first_name');?></th>
+                <th><?php echo $this->Paginator->sort('Sobrenome','last_name');?></th>
+                <th><?php echo $this->Paginator->sort('Função','group_id');?></th>
+                <th><?php echo $this->Paginator->sort('E-mail','email');?></th>
+                <th><?php echo $this->Paginator->sort('Telefone','phone');?></th>
+                <th class="actions"><?php __('Ações');?></th>
             </tr>
         </thead>
         <?php
@@ -26,9 +21,7 @@
             }
             ?>
         <tr<?php echo $class;?>>
-            <td><?php echo $user['User']['id']; ?>&nbsp;</td>
             <td><?php echo $user['User']['username']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['password']; ?>&nbsp;</td>
             <td>
                     <?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
             </td>
@@ -36,9 +29,6 @@
             <td><?php echo $user['User']['first_name']; ?>&nbsp;</td>
             <td><?php echo $user['User']['last_name']; ?>&nbsp;</td>
             <td><?php echo $user['User']['phone']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['active']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['created']; ?>&nbsp;</td>
-            <td><?php echo $user['User']['modified']; ?>&nbsp;</td>
             <td class="actions">
                     <?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
                     <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
@@ -48,11 +38,6 @@
         <?php endforeach; ?>
         <tfoot>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

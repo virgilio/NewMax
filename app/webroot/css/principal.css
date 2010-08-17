@@ -116,7 +116,7 @@ p {
     text-decoration: none;
 }
 #content{
-    background:url("../img/shadow.png") repeat-x scroll center top transparent;
+    background:url('../img/shadow.png') repeat-x scroll center top transparent;
     padding-top:15px;
 }
 
@@ -165,7 +165,6 @@ p {
     float:left;
     font-weight:bold;
     height:91px;
-    list-style-position:inside;
     overflow:hidden;
     padding:2px 5px 5px;
     width:88px;

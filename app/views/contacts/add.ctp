@@ -1,18 +1,18 @@
 <div class="contacts form">
 <?php echo $this->Form->create('Contact');?>
 	<fieldset>
- 		<legend><?php __('Add Contact'); ?></legend>
+ 		<legend><?php __('Cadastro de Contato'); ?></legend>
 	<?php
-		echo $this->Form->input('client_id');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('frequency');
-		echo $this->Form->input('funcao');
-		echo $this->Form->input('name');
-		echo $this->Form->input('phone');
-		echo $this->Form->input('email');
+		echo $this->Form->input('client_id', array('label' => 'Cliente'));
+		echo $this->Form->input('user_id', array('label' => 'Vendedor'));
+		echo $this->Form->input('frequency', array('label' => 'Frequencia'));
+		echo $this->Form->input('funcao', array('label' => 'Função'));
+		echo $this->Form->input('name', array('label' => 'Nome'));
+		echo $this->Form->input('phone', array('label' => 'Telefone'));
+		echo $this->Form->input('email', array('label' => 'E-mail'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
 <?php /*
 <div class="actions">

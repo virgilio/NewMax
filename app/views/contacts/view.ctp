@@ -1,38 +1,33 @@
 <div class="contacts view_">
-    <h2><?php  __('Contact');?></h2>
+    <h2><?php  __('Contato');?></h2>
     <dl><?php $i = 0;
 $class = ' class="altrow"';?>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-        <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-<?php echo $contact['Contact']['id']; ?>
-            &nbsp;
-        </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Client'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cliente'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $this->Html->link($contact['Client']['name'], array('controller' => 'clients', 'action' => 'view', $contact['Client']['id'])); ?>
             &nbsp;
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vendedor'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-<?php echo $this->Html->link($contact['User']['id'], array('controller' => 'users', 'action' => 'view', $contact['User']['id'])); ?>
+<?php echo $this->Html->link($contact['User']['first_name'], array('controller' => 'users', 'action' => 'view', $contact['User']['id'])); ?>
             &nbsp;
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Frequency'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Frequência'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $contact['Contact']['frequency']; ?>
-            &nbsp;
+             dias
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Funcao'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Função'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $contact['Contact']['funcao']; ?>
             &nbsp;
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $contact['Contact']['name']; ?>
             &nbsp;
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Phone'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Telefone'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $contact['Contact']['phone']; ?>
             &nbsp;
@@ -47,14 +42,9 @@ $class = ' class="altrow"';?>
 <?php echo $contact['Contact']['active'] == '1' ? 'Sim' : 'Não'; ?>
             &nbsp;
         </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Criado em'); ?></dt>
         <dd<?php if ($i++ % 2 == 0) echo $class;?>>
 <?php echo $contact['Contact']['created']; ?>
-            &nbsp;
-        </dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-        <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-<?php echo $contact['Contact']['modified']; ?>
             &nbsp;
         </dd>
     </dl>

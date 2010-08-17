@@ -1,5 +1,5 @@
 <div class="contacts index">
-    <h2><?php __('Contacts');?></h2>
+    <h2><?php __('Contatos');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>

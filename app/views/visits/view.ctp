@@ -1,17 +1,12 @@
 <div class="visits view_">
-<h2><?php  __('Visit');?></h2>
+<h2><?php  __('Visita');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contato'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $visit['Visit']['id']; ?>
+			<?php echo $this->Html->link($visit['Contact']['name'], array('controller' => 'users', 'action' => 'view', $visit['Contact']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contact'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($visit['Contact']['id'], array('controller' => 'users', 'action' => 'view', $visit['Contact']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $visit['Visit']['date']; ?>
 			&nbsp;
@@ -26,19 +21,9 @@
 			<?php echo $visit['Visit']['status']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Report'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Observações'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $visit['Visit']['report']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $visit['Visit']['created']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $visit['Visit']['modified']; ?>
 			&nbsp;
 		</dd>
 	</dl>

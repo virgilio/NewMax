@@ -1,7 +1,7 @@
 <div class="visits form">
-<?php echo $this->Form->create('Visit');?>
+<?php echo $this->Form->create('Visita');?>
 	<fieldset>
- 		<legend><?php __('Edit Visit'); ?></legend>
+ 		<legend><?php __('Editar Visitar'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('contact_id');
@@ -11,7 +11,7 @@
 		echo $this->Form->input('report');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
 
 <?php /*

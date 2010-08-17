@@ -1,5 +1,5 @@
 <div class="visits index">
-    <h2><?php __('Visits');?></h2>
+    <h2><?php __('Visitas');?></h2>
     <table cellpadding="0" cellspacing="0" class="table_general_layout" >
         <thead>
             <tr>

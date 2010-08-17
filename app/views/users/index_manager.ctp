@@ -3,26 +3,13 @@
     <table cellpadding="0" cellspacing="0" class="table_general_layout ">
         <thead>
             <tr>
-
-                <th><?php echo $this->Paginator->sort('username');?></th>
-                <th><?php echo $this->Paginator->sort('group_id');?></th>
-                <th><?php echo $this->Paginator->sort('email');?></th>
-                <th><?php echo $this->Paginator->sort('first_name');?></th>
-                <th><?php echo $this->Paginator->sort('last_name');?></th>
-                <th><?php echo $this->Paginator->sort('phone');?></th>
-                <?php
-                    /*<th><?php echo $this->Paginator->sort('active');?></th>*/
-                ?>
-
-
-                <?php
-                /*echo $this->Paginator->sort('id');
-                        echo $this->Paginator->sort('password');
-                        echo $this->Paginator->sort('created');
-			echo $this->Paginator->sort('modified');*/
-                ?>
-
-                <th class="actions"><?php __('Actions');?></th>
+                <th><?php echo $this->Paginator->sort('Usuário','username');?></th>
+                <th><?php echo $this->Paginator->sort('Nome','first_name');?></th>
+                <th><?php echo $this->Paginator->sort('Sobrenome','last_name');?></th>
+                <th><?php echo $this->Paginator->sort('Função','group_id');?></th>
+                <th><?php echo $this->Paginator->sort('E-mail','email');?></th>
+                <th><?php echo $this->Paginator->sort('Telefone','phone');?></th>
+                <th class="actions"><?php __('Ações');?></th>
             </tr>
         </thead>
         <?php

@@ -1,15 +1,15 @@
 <div class="visits form">
 <?php echo $this->Form->create('Visit');?>
 	<fieldset>
- 		<legend><?php __('Add Visit'); ?></legend>
+ 		<legend><?php __('Adicionar Visita'); ?></legend>
 	<?php
 		echo $this->Form->input('contact_id', array('label' => 'Contato/Cliente'));
-		echo $this->Form->input('date');
-		echo $this->Form->input('status');
-		echo $this->Form->input('report');
+		echo $this->Form->input('date', array('label' => 'Data'));
+		echo $this->Form->input('status', array('label' => 'Status'));
+		echo $this->Form->input('report', array('label' => 'Observações'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Salvar', true));?>
 </div>
 <?php /*
 <div class="actions">

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        <title>
+            NewMax: Gerenciamento de Visitas            Pages        </title>
+        <link href="/NewMax/favicon.ico" type="image/x-icon" rel="icon" /><link href="/NewMax/favicon.ico" type="image/x-icon" rel="shortcut icon" /><link rel="stylesheet" type="text/css" href="/NewMax/css/reset.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/960.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/principal.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/tipsy.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/style.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/table.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/breadcrumb.css" /><link rel="stylesheet" type="text/css" href="/NewMax/css/text.css" /><script type="text/javascript" src="/NewMax/js/jquery.js"></script><script type="text/javascript" src="/NewMax/js/kwicks.js"></script><script type="text/javascript" src="/NewMax/js/custom.js"></script><script type="text/javascript" src="/NewMax/js/jquery.corner.js"></script><script type="text/javascript" src="/NewMax/js/jquery.tipsy.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() {
+                $('#login').corner("4px");
+                $('#form_login').corner("4px");
+                $('#login').toggle(
+                function() {
+                    $(this).uncorner();
+                    $(this).corner("4px top")
+                    $('#form_login').slideDown('fast');
+                },
+                function() {
+                    $('#form_login').slideUp('fast', function() {
+                        $('#login').corner("4px");
+                    });
+                });
+
+                $('#report').toggle(
+                function() {
+                    $(this).uncorner();
+                    $(this).corner("4px top")
+                    //$('#form_report').slideDown('fast');
+                    $('#form_report').css({display: 'table'});
+                },
+                function() {
+                    $('#form_report').css({display: 'none'});
+                });
+
+                $('.visit').tipsy({gravity: $.fn.tipsy.autoNS, html: true});
+            });
+
+        </script>
+
+
+    </head>
+    <body>
+
+        <!--	<div id="container">-->
+        <div id="header">
+            <div class="container_12">
+    <div id="logoimage">
+        <img src="/NewMax/img/logomenor.png" class="grid_2" alt="" />    </div>
+        <div id="menu">
+        <ul class="kwicks kwicksAnon grid_6">
+            <li id="kwick7"><a href="/NewMax/pages/home">Home</a></li>
+            <li id="kwick8"><a href="/NewMax/pages/contato">Contato</a></li>
+            <li id="kwick9"><a href="/NewMax/pages/ajuda">Ajuda</a></li>
+        </ul>
+    </div>
+
+    <div id="boxlogin" class="grid_1">
+        <a id="login" >Login</a>
+        <div id="form_login">
+                <form id="UserLoginForm" method="post" action="/NewMax/users/login" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST" /></div><fieldset><div class="input text"><label for="UserUsername">Login</label><input name="data[User][username]" type="text" id="UserUsername" /></div><div class="input password"><label for="UserPassword">Senha</label><input type="password" name="data[User][password]" id="UserPassword" /></div></fieldset><div class="submit"><input type="submit" value="Login" /></div></form>        </div>
+    </div>
+        </div>
+
+        </div>
+        
+        <div id="content">
+            <div class="container_12">
+                
+                <p>
+    Bem vindo ao sistema online para controle de visitas comerciais no segmento de ingredientes da New Max Industrial.<br/>
+    O objetivo desse sistema é monitorar e organizar a visualização de todas as visitas programadas, por clientes e vendedores.
+</p>
+<p>
+    Para acessá-lo, clique no botão "Login" localizado no canto superior direito da página.<br/>
+    Caso não tenha usuário de acesso, utilize o menu acima para entrar em contato.<br/>
+    Para mais informações clique em Ajuda.
+</p>
+            </div>
+        </div>
+        <div id="footer" class="container_12">
+                        <ul>
+                <li>New Max |</li>
+                <li>Suporte |</li>
+                <li>MatchBoxIdeas</li>
+            </ul>
+
+        </div>
+        <!--</div>-->
+            </body>
+</html>
